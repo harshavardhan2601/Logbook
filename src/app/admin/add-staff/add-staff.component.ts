@@ -15,6 +15,7 @@ export class AddStaffComponent implements OnInit {
   signatureimg: any;
   staffdata= <staffModal>{};
   isImageSaved= false;
+  language= false
   formdiv=true
   candiv = false
   pid = true
@@ -58,7 +59,8 @@ export class AddStaffComponent implements OnInit {
     var target = evt.target;
     console.log(target.checked)
     if (target.checked) {
-      document.getElementById('language_details').style.display = 'block'
+      this.language = true
+      // document.getElementById('language_details').style.display = 'block'
     }
   }
 
@@ -66,7 +68,8 @@ export class AddStaffComponent implements OnInit {
     var target = evt.target;
     console.log(target.checked)
     if (target.checked) {
-      document.getElementById('language_details').style.display = 'none'
+      this.language = false
+      // document.getElementById('language_details').style.display = 'none'
     }
   }
 
