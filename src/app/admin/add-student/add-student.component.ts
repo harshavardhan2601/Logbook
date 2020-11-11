@@ -19,10 +19,7 @@ export class AddStudentComponent implements OnInit {
   candiv = false
   pid = true
   signd = false
-  pAddress: any
-  pCity: any
-  pState: any
-  pCode: any
+  language = false
   constructor() { }
 
   ngOnInit(): void {
@@ -66,7 +63,8 @@ export class AddStudentComponent implements OnInit {
     var target = evt.target;
     console.log(target.checked)
     if (target.checked) {
-      document.getElementById('language_details').style.display = 'block'
+      this.language = true
+      // document.getElementById('language_details').style.display = 'block'
     }
   }
 
@@ -74,7 +72,8 @@ export class AddStudentComponent implements OnInit {
     var target = evt.target;
     console.log(target.checked)
     if (target.checked) {
-      document.getElementById('language_details').style.display = 'none'
+      this.language = false
+      // document.getElementById('language_details').style.display = 'none'
     }
   }
 
@@ -86,9 +85,6 @@ export class AddStudentComponent implements OnInit {
     }
     else {
       this.studentdata.permanent_address = '';
-      this.pCity = '';
-      this.pCode = '';
-      this.pState = '';
     }
   }
 
