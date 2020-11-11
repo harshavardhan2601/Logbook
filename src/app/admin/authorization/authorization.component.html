@@ -1,0 +1,257 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center"><span id="ba"></span></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title" id="lodate" style="margin-top:0;margin-bottom:0">Authorization Log Book
+                        </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center mt-5">
+                        <input id="sunset_id" type="hidden" />
+                        <input id="sunsetObj" type="hidden" name="sunset_obj" />
+                        <input type="hidden" name="datetoday" />
+                        <input id="aircraft" type="hidden" />
+                        <input id="instructor_obj" type="hidden" />
+                        <input id="student_obj" type="hidden" />
+                        <input id="location_obj" type="hidden" />
+                        <input id="ho_r" type="hidden" />
+                        <input id="role" type="hidden" />
+                        <input id="savedata" type="hidden" />
+                        <input id="main" type="hidden" />
+                        <table class="table table-bordered table-responsive">
+                            <tbody class="field_wrapper">
+                                <tr>
+                                    <td rowspan="3">Type of A/C</td>
+                                    <td rowspan="3">A/C reg mark</td>
+                                    <td rowspan="3">Name of Instructor/PIC</td>
+                                    <td rowspan="3">Name of Student</td>
+                                    <td rowspan="2" colspan="2">Route to be flown &amp; Aerodrome to be visited</td>
+                                    <td rowspan="3">Initial of PIC before Flight</td>
+                                    <td rowspan="3">Authorised Instructor Sign</td>
+                                    <td class="text-center" colspan="4">Actual Time</td>
+                                    <td class="text-center" colspan="4">Total flight time SOLO/DUAL</td>
+                                    <td rowspan="3">Sign of Student</td>
+                                    <td rowspan="3">Details of Exercise</td>
+                                    <td rowspan="3">No.of Landings</td>
+                                    <td rowspan="3">Initials of PIC after flight</td>
+                                    <td rowspan="3">Remarks</td>
+                                    <td rowspan="3">Action</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" colspan="2">Departure</td>
+                                    <td class="text-center" colspan="2">Arrival</td>
+                                    <td class="text-center" id="Dual" colspan="2">Dual</td>
+                                    <td class="text-center" id="Solo" colspan="2">Solo</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">From</td>
+                                    <td class="text-center">To</td>
+                                    <td class="text-center">Hrs</td>
+                                    <td class="text-center">Mts</td>
+                                    <td class="text-center">Hrs</td>
+                                    <td class="text-center">Mts</td>
+                                    <td class="text-center" id="Dual">Hrs</td>
+                                    <td class="text-center" id="Dual">Mts</td>
+                                    <td class="text-center" id="Solo">Hrs</td>
+                                    <td class="text-center" id="Solo">Mts</td>
+                                </tr>
+                                <tr id="addfield">
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="sel1" style="width:150px" name="aircraft">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="register" style="width:150px" name="regMark">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="nameOfInstr" style="width:150px" name="nstructor_obj">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="nameStd" style="width:150px" name="student_obj">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="routeFrom" style="width:150px" name="routeFrom">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="routeTo" style="width:150px" name="routeTo">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary " id="yesPic" type="button" value="Yes">Yes</button>
+                                            <button class="btn btn-danger " id="noPic" type="button" value="No">No</button>
+                                            <div id="picBefore"></div>
+                                            <input id="picBefore_sign" type="hidden" name="picBefore_sign" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div id="auth_sign_yes">
+                                                <button class="btn btn-primary " id="yesInstructor" type="button"  value="Yes">Yes</button>
+                                                <button class="btn btn-danger " id="noInstructor" type="button"  value="No">No</button>
+                                                <div id="authInstructorSign"></div>
+                                                <input id="instructor_sign" type="hidden" name="auth_sign" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="timeHr" style="width:90px" name="departureHrs">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="timeMin" style="width:96px" name="departureMts">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="arrtimeHr" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                            </select>
+                                            <input id="dualtimeHrdis" type="hidden" name="arrivalHrs" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="arrtimeMin" style="width:96px"  disabled="disabled">
+                                                <option value="">Select</option>
+                                            </select>
+                                            <input id="arrtimeMin" type="hidden" name="arrivalMts" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td id="Dual">
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="dualtimeHr" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                                <input type="hidden" id="dualtimeHr" />
+                                            </select>
+                                            <input id="dualtimeHrdis" type="hidden" name="dualHrs" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td id="Dual">
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="dualtimeMin" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                                <input type="hidden" id="dualtimeMin" />
+                                            </select>
+                                            <input id="dualtimeMindis" type="hidden" name="dualMts" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td id="Solo">
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="solotimeHr" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                            </select>
+                                            <input id="solotimeHrdis" type="hidden" name="soloHrs" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td id="Solo">
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="solotimeMin" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                            </select>
+                                            <input id="solotimeMindis" type="hidden" name="soloMts" style="width:40px" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary " id="yesStudent" type="button"  value="Yes" disabled="disabled">Yes</button>
+                                            <button class="btn btn-danger " id="noStudent" type="button"  value="No" disabled="disabled">No</button>
+                                            <div id="signOfStudent"></div>
+                                            <input id="student_sign" type="hidden" name="student_sign" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input id="student_sign" type="hidden" name="detailsOfExercise" />
+                                            <select class="form-control form-control-sm" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                                <option value="Exercise 1">Exercise 1</option>
+                                                <option value="Exercise 2">Exercise 2</option>
+                                                <option value="Exercise 3">Exercise 3</option>
+                                                <option value="Exercise 4">Exercise 4</option>
+                                                <option value="Exercise 5">Exercise 5</option>
+                                                <option value="Exercise 6">Exercise 6</option>
+                                                <option value="Exercise 7">Exercise 7</option>
+                                                <option value="Exercise 8">Exercise 8</option>
+                                                <option value="Exercise 9">Exercise 9</option>
+                                                <option value="Exercise 10">Exercise 10</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input id="landling" type="hidden" name="noOfLandings" />
+                                            <select class="form-control form-control-sm" style="width:90px" disabled="disabled">
+                                                <option value="">Select</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary btn-xs ml-4 ml-1" id="yesPicAfter" type="button"  value="Yes" disabled="disabled">Yes</button>
+                                            <button class="btn btn-danger btn-xs ml-5 ml-1 mb-1" id="noPicAfter" type="button"  value="No" disabled="disabled">No</button>
+                                            <div id="picAfter"></div>
+                                            <input id="picAfter_sign" type="hidden" name="picAfter_sign" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-sm" style="width:150px" type="text" readonly="readonly" name="remarks" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="btn btn-primary btn-xs ml-4 ml-1" type="submit" value="Save" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

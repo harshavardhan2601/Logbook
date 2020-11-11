@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 mt-3">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">Student List<a class="btn btn-primary btn-sm float-right" href="/admin/student">Add Student</a></h4>
+				</div>
+				<div class="card-body">
+					<input id="role" type="hidden" />
+					<div class="row">
+						<div class="offset-md-8 col-md-4 mb-3">
+							<div class="input-group input-group-sm">
+								<input class="form-control" id="searchData" type="form-control" />
+								<div class="input-group-append">
+									<button class="btn_search btn btn-primary">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="dataObject">
+						<div class="col-md-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th> First Name</th>
+										<th> Last Name </th>
+										<th> Action </th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

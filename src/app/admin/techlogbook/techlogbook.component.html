@@ -1,0 +1,138 @@
+<div class="container-fluid" id="print-element">
+	<div class="col-md-12 mt-3">
+		<div class="card">
+			<div class="card-header card-header-primary">
+				<h5 class="card-title" style="margin-top:0;margin-bottom:0">Tech Log Book </h5>
+			</div>
+			<div class="card-body">
+				<input id="re" type="hidden" name="log_req" />
+					<input id="role" type="hidden" />
+					<div class="col-md-12" id="dd">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="input-group input-group-sm">
+									<div class="input-group-append">
+										<div class="input-group-text">Sort By</div>
+									</div>
+									<select class="form-control sm" id="soty" name="sortby" value="select">Select
+										<option value="Select">Select</option>
+										<option value="Student">Student</option>
+										<option value="Instructor">Instructor</option>
+										<option value="Aircraft">Aircraft</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3" id="st1" style="display:none">
+								<div class="input-group input-group-sm">
+									<div class="input-group-prepend"><span class="input-group-text">Email</span></div>
+									<input class="form-control" id="st" type="text" name="smail" value="" maxlength="30" />
+								</div>
+							</div>
+							<div class="col-md-3" id="in1" style="display:none">
+								<div class="input-group input-group-sm">
+									<div class="input-group-prepend"><span class="input-group-text">Email</span></div>
+									<input class="form-control" id="in" type="text" name="imail" value="" maxlength="30" />
+								</div>
+							</div>
+							<div class="col-md-3" id="air1" style="display:none">
+								<div class="input-group input-group-sm">
+									<div class="input-group-prepend"><span class="input-group-text">Reg No</span></div>
+									<input class="form-control" id="reg" type="text" name="reg" value="" maxlength="30" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-12">
+								<div class="input-group input-group-sm">
+									<div class="input-group-append">
+										<div class="input-group-text">From date </div>
+									</div>
+									<input class="form-control" id="date_min" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="MM/DD/YYYY" name="date_min" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-12">
+								<div class="input-group input-group-sm">
+									<div class="input-group-append">
+										<div class="input-group-text">To date </div>
+									</div>
+									<input class="form-control" id="date_max" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="MM/DD/YYYY" name="date_max" />
+								</div>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col-md-3 col-sm-12">
+								<input class="btn btn-success btn-sm mb-2" type="submit" value="Search" />
+							</div>
+							<div class="col-md-3 col-sm-12">
+								<input class="btn btn-primary btn-sm mb-2" type="button" value="Today"  />
+								<input class="btn btn-primary btn-sm mb-2 ml-2" type="button" value="Week" />
+								<input class="btn btn-primary btn-sm mb-2 ml-2" type="button" value="Month"/>
+								<input class="btn btn-danger btn-sm mb-2 ml-5" id="print-button" type="button" value="PDF" />
+							</div>
+						</div>
+					</div>
+				<div class="row mt-2">
+					<table class="ta table table-bordered table-responsive" id="cc">
+						<tbody class="ta field_wrapper">
+							<tr class="ta" style="display:none">
+								<td class="ta">1</td>
+								<td class="ta">2</td>
+								<td class="ta">3</td>
+								<td class="ta">4</td>
+								<td class="ta">5</td>
+								<td class="ta">6</td>
+								<td class="ta">7</td>
+								<td class="ta">8</td>
+								<td class="ta">9</td>
+								<td class="ta">10</td>
+								<td class="ta">11</td>
+								<td class="ta">12</td>
+								<td class="ta">13</td>
+								<td class="ta">14</td>
+								<td class="ta">15</td>
+								<td class="ta">16</td>
+								<td class="ta">17</td>
+								<td class="ta">18</td>
+								<td class="ta">19</td>
+								<td class="ta">20</td>
+								<td class="ta">21</td>
+							</tr>
+							<tr class="ta text-center">
+								<td class="ta" rowspan="3">Type of A/C</td>
+								<td class="ta" rowspan="3">A/C reg mark</td>
+								<td class="ta" rowspan="3">Name of Instructor/PIC</td>
+								<td class="ta" rowspan="3">Name of Student</td>
+								<td class="ta" rowspan="2" colspan="2">Route to be flown &amp; Aerodrome to be visited</td>
+								<td class="ta" rowspan="3">Initial of PIC before Flight</td>
+								<td class="ta" rowspan="3">Authorised Instructor Sign</td>
+								<td class="ta" colspan="4">Actual Time</td>
+								<td class="ta" colspan="4">Total flight time SOLO/DUAL</td>
+								<td class="ta" rowspan="3">Sign of Student</td>
+								<td class="ta" rowspan="3">Details of Exercise</td>
+								<td class="ta" rowspan="3">No.of Landings</td>
+								<td class="ta" rowspan="3">Initials of PIC after flight</td>
+								<td class="ta" rowspan="3">Remarks</td>
+							</tr>
+							<tr class="ta text-center">
+								<td class="ta" colspan="2">Departure</td>
+								<td class="ta" colspan="2">Arrival</td>
+								<td class="ta" id="Dual" colspan="2">Dual</td>
+								<td class="ta" id="Solo" colspan="2">Solo</td>
+							</tr>
+							<tr class="ta text-center">
+								<td class="ta">From</td>
+								<td class="ta">To</td>
+								<td class="ta">Hrs</td>
+								<td class="ta">Mts</td>
+								<td class="ta">Hrs</td>
+								<td class="ta">Mts</td>
+								<td class="ta" id="Dual">Hrs</td>
+								<td class="ta" id="Dual">Mts</td>
+								<td class="ta" id="Solo">Hrs</td>
+								<td class="ta" id="Solo">Mts</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

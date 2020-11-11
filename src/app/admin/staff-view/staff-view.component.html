@@ -1,0 +1,156 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h5 class="card-title">View Staff </h5>
+                </div>
+                <div class="card-body">
+                    <form autocomplete="off">
+                        <input id="role" type="hidden" value="1">
+                        <div class="border m-1 p-2">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5>Select Staff</h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <span>{{staffdata.staff_type}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>Personal Details</h5>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>First Name : </b>
+                                            <span>{{staffdata.firstName}}</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Middle Name : </b>
+                                            <span>{{staffdata.middleName}}</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Last Name :</b>
+                                            <span>{{staffdata.lastName}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Nick Name :</b>
+                                            <span>{{staffdata.NickName}}</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <b>Gender : &nbsp;</b>
+                                            <span>{{staffdata.gender}}</span>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-12">
+                                            <b>D.O.B :</b>
+                                            <span>{{staffdata.doB}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12 col-12">
+                                            <img src="{{'data:image/jpg;base64,' + staffdata.file_attach1}}"  width="100px"  alt="">
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <h5>Login Details :</h5>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <b>Phone Number :</b>
+                                    <span>{{staffdata.phoneNumber}}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <b>Email Address :</b>
+                                    <span>{{staffdata.email}}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <b>Password :</b>
+                                    <span>{{staffdata.password}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <h5 style="margin-top:0;margin-bottom:0">Address Details :</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <b>Permanent Address :</b>
+                                    <span>{{staffdata.permaAdrr}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <b>City :</b>
+                                    <span>{{staffdata.permaCity}}</span>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <b>State :</b>
+                                    <span>{{staffdata.staffstateCurrent}}</span>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <b>Postal Code :</b>
+                                    <span>{{staffdata.permaPostalCode}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-12">
+                                    <h5>File Attachments(Last page of Log Book) </h5>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-12">
+                                    <img src="{{'data:image/jpg;base64,' + staffdata.attachFile}}" alt="" width="100px" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <h5>Language Details :</h5>
+                            <div class="mt-3" id="language">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3">
+                                        <p>English Language proficiency :</p>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <span>{{staffdata.language}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="language_details">
+                                <div class="row" *ngIf='!(staffdata.language == "none")'>
+                                    <div class="col-md-5 col-sm-6 col-6">
+                                        <b>S.No:</b>
+                                        <span>{{staffdata.english_level_type}} </span>
+                                    </div>
+                                    <div class="col-md-5 col-sm-6 col-6">
+                                        <b>Validity:</b>
+                                        <span>{{staffdata.english_level_date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border m-1 p-2">
+                            <div class="row">
+                                <input type="hidden" id="hiSign" name="stffSignature">
+                                <div class="col-md-6 col-sm-6 col-12">
+                                    <p>Student Signature :</p>
+                                    <div class="p4"
+                                        style="width:100px;height:100px;border:solid 1px #ccc;background-color:white;"
+                                        id="pId">
+                                        <img src="{{'data:image/jpg;base64,' + staffdata.stffSignature}}" id="initial_sign" style="width:100px;height:100px;border:1px solid #000;">
+                                    </div>
+                                    <span class="student_sign"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

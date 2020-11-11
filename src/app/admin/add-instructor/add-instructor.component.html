@@ -1,0 +1,1148 @@
+<div class="container-fluid">
+	<div id="blackscreen"></div>
+	<div id="blackmessage"></div>
+	<div class="row">
+		<div class="col-md-12 mt-3">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h5 class="card-title mb-0">Add Instructor<a class="btn btn-success float-right" title="Back" href="undefinedadmin/instructorList">Back </a></h5>
+				</div>
+				<div class="card-body">
+					<input id="role" type="hidden" />
+					<!-- <div class="row" id="canvasDiv">
+						<canvas id="canvasSignature" width="280px" height="400px" style="border:2px solid #000000;"></canvas><br /><br />
+						<input type="button" onclick="CloseCanvas()" value="Close" style="margin-right:25px" />
+						<input type="button" onclick="clearSignature()" value="Clear" style="margin-right:25px" />
+						<input type="button" onclick="saveSignature()" value="Save" style="margin-right:7px" />
+					</div> -->
+					<div id="formDiv">
+						<div class="border m-1 p-2">
+							<div class="row">
+								<div class="col-md-2">
+									<h5>Instructor</h5>
+								</div>
+								<div class="col-md-2">
+									<select class="form-control" name="role_name" required="required">
+										<option value="">Select</option>
+										<option value="AFI">AFI</option>
+										<option value="FI">FI</option>
+										<option value="Deputy CFI">Deputy CFI</option>
+										<option value="CFI/CI">CFI/CI</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="border m-1 p-2">
+							<h5>Personal Details</h5>
+							<input type="hidden" name="instr_id" />
+							<div class="row mt-3">
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">First Name</span></div>
+										<input class="form-control form-control-sm up as" type="text" name="firstName" minlength="6" maxlength="20" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Middle Name</span></div>
+										<input class="form-control form-control-sm up as" type="text" name="middleName" maxlength="20" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Last Name</span></div>
+										<input class="form-control form-control-sm up as" type="text" name="lastName" maxlength="20" />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Nick Name</span></div>
+										<input class="form-control form-control-sm up as" type="text" name="nickname" maxlength="20" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">D.O.B</span></div>
+										<input class="form-control form-control-sm datepicker" type="text" data-date-format="dd/mm/yyyy" data-provide="datepicker" name="dateOfBirth" placeholder="DD/MM/YYYY" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend">
+											<div class="input-group-text">Gender</div>
+										</div>
+										<div class="custom-control custom-radio ml-2">
+											<input class="custom-control-input" id="gender_m" type="radio" name="gender" value="Male" />
+											<label class="custom-control-label" for="gender_m" style="font-size: 14px;margin-top: 3px;">Male</label>
+										</div>
+										<div class="custom-control custom-radio ml-1">
+											<input class="custom-control-input" id="gender_f" type="radio" name="gender" value="Female" />
+											<label class="custom-control-label" for="gender_f" style="font-size: 14px;margin-top: 3px;">Female </label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4 col-sm-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Blood Type </span></div>
+										<select class="form-control" name="bloodgroup">
+											<option value="select">Select</option>
+											<option value="A+">A+</option>
+											<option value="A-">A-</option>
+											<option value="B+">B+</option>
+											<option value="B-">B-</option>
+											<option value="O+">O+</option>
+											<option value="O-">O-</option>
+											<option value="AB+">AB+</option>
+											<option value="AB-">AB-</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Allergies</span></div>
+										<input class="form-control form-control-sm as" type="text" name="allergies" />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4 col-sm-12">
+									<textarea class="form-control form-control-sm" name="healthIssue" placeholder="Health Insurance (if any) "></textarea>
+								</div>
+							</div>
+						</div>
+						<!-- gender input start -->
+						<!-- gender input start-->
+						<div class="border m-1 p-2">
+							<div class="row mt-2">
+								<div class="col-md-2">
+									<h5>Contact Details</h5>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Phone Number</span></div>
+										<input class="form-control form-control-sm" id="pCell" type="text" name="phoneNumber" required="required" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Email Address</span></div>
+										<input class="form-control form-control-sm" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]$" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-append">
+											<div class="input-group-text">Password</div>
+										</div>
+										<input class="form-control form-control-sm" type="password" name="password" maxlength="16" minlength="8" required="required" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="border m-1 p-2">
+							<div class="row mt-2">
+								<div class="col-md-2">
+									<h5>Address Details</h5>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-12">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Current Address </span></div>
+										<input class="form-control form-control-sm" id="address" type="text" name="current_address" />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text"> City</span></div>
+										<input class="form-control form-control-sm as" id="city" type="text" name="current_city" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">State</span></div>
+										<select class="form-control" id="state" name="current_state">
+											<option value="">Select</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text"> Postal Code</span></div>
+										<input class="form-control form-control-sm" id="pincode" type="text" name="current_post" />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="custom-control custom-checkbox custom-control-inline ml-3">
+									<input class="custom-control-input" id="same" type="checkbox" onchange="setpermaAdrr()" />
+									<label class="custom-control-label" for="same">same as above</label>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-12">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text"> Permanent Address</span></div>
+										<input class="form-control form-control-sm" id="pAddress" type="text" name="permanent_address" />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">City</span></div>
+										<input class="form-control form-control-sm as" id="pCity" type="text" name="permanent_city" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">State</span></div>
+										<select class="form-control" id="pState" name="permanent_state">
+											<option value="">Select</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Postal Code</span></div>
+										<input class="form-control form-control-sm" id="pCode" type="text" name="permanent_post" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- license details start-->
+						<div class="border m-1 p-2">
+							<h5>License Details</h5>
+							<div class="row">
+								<p class="col-md-2 col-sm-2 requiredField" for="location"> License Type</p>
+								<div class="col-md-10">
+									<div class="row">
+										<!-- FRTOL Start-->
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="FRTOL1" type="checkbox" name="license_frtol" value="FRTOL" onchange="showDivFRTOL(this.checked)" />
+												<label class="custom-control-label" for="FRTOL1">FRTOL</label>
+											</div>
+										</div>
+										<!-- FRTOL END-->
+										<!-- COPRTR Start-->
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="COPRTR1" type="checkbox" name="license_coprtr" value="COPRTR" onchange="showDivCOPRTR(this.checked)" />
+												<label class="custom-control-label" for="COPRTR1">COPRTR</label>
+											</div>
+										</div>
+										<!-- COPRTR END-->
+										<!-- PPL Start-->
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="PPL1" type="checkbox" name="license_ppl" value="PPL" onchange="showDivPPL(this.checked)" />
+												<label class="custom-control-label" for="PPL1">PPL</label>
+											</div>
+										</div>
+										<!-- PPL END-->
+										<!-- CPL START-->
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="CPL1" type="checkbox" name="license_cpl" value="CPL" onchange="showDivcpl(this.checked)" />
+												<label class="custom-control-label" for="CPL1">CPL</label>
+											</div>
+										</div>
+										<!-- CPL END-->
+										<!-- CHPL START-->
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="CHPL1" type="checkbox" name="license_chpl" value="CHPL" onchange="showDivCHPL(this.checked)" />
+												<label class="custom-control-label" for="CHPL1">CHPL</label>
+											</div>
+										</div>
+										<!-- CHPL START-->
+										<!-- ATPL START-->
+										<div class="col-md-1 col-sm-1 col-xs-1">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="ATPL1" type="checkbox" name="license_atpl" value="ATPL" onchange="showDivATPL(this.checked)" />
+												<label class="custom-control-label" for="ATPL1">ATPL</label>
+											</div>
+										</div>
+										<!-- ATPL START-->
+										<!-- IR START-->
+										<div class="col-md-1 col-sm-1 col-xs-1">
+											<div class="custom-control custom-checkbox custom-control-inline">
+												<input class="custom-control-input" id="IR1" type="checkbox" name="license_ir" value="IR" onchange="showDivIR(this.checked)" />
+												<label class="custom-control-label" for="IR1">IR</label>
+											</div>
+										</div>
+										<!-- IR START-->
+									</div>
+								</div>
+								<!-- Licence Type SHOW/HIDE START-->
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12">
+									<div class="license_details">
+										<!-- FRTOL Type SHOW/HIDE START-->
+										<div class="FRTOL" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" placeholder="FRTOL  No." type="text" name="frtol_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="issue date" name="frtol_issue_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="frtol_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="frtol_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- FRTOL Type SHOW/HIDE END-->
+										<!-- COPRTR R Type SHOW/HIDE START-->
+										<div class="COPRTR" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" placeholder="COPRTR No." type="text" name="coprtr_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="coprtr_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="coprtr_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="coprtr_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- FRTOL R Type SHOW/HIDE END-->
+										<!-- PPL Type SHOW/HIDE START-->
+										<div class="ppl" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<input class="form-control form-control-sm" placeholder="PPL No." type="text" name="ppl_no" />
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="issue date" name="ppl_issue_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="ppl_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="ppl_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- PPL Type SHOW/HIDE END-->
+										<!-- CPL Type SHOW/HIDE START-->
+										<div class="cpl" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="IND CPL No." name="cpl_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="cpl_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expriy date" name="cpl_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="cpl_attach"></div>
+											</div><br />
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="FORG CPL No." name="cpl_forg_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="cpl_issue_forg_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expriy date" name="cpl_exp_forg_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="cpl_forg_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- CPL Type SHOW/HIDE END-->
+										<!-- CHPL Type SHOW/HIDE START-->
+										<div class="CHPL" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="IND CHPL No." name="chpl_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" name="chpl_issue_date" placeholder="issue date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="chpl_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="chpl_attach"></div>
+											</div><br />
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="FORG CHPL No." name="chpl_forg_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" name="chpl_issue_forg_date" placeholder="issue date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="chpl_exp_forg_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="chpl_forg_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- CHPL Type SHOW/HIDE END-->
+										<!-- ATPL Type SHOW/HIDE START-->
+										<div class="required ATPL" id="license" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" name="atpl_no" placeholder="IND ATPL No." />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" name="atpl_issue_date" placeholder="issue date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="atpl_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="atpl_attach"></div>
+											</div><br />
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" name="atpl_forg_no" placeholder="FORG ATPL No." />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" name="atpl_issue_forg_date" placeholder="issue date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="atpl_exp_forg_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="atpl_forg_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- ATPL Type SHOW/HIDE END-->
+										<!-- IR Type SHOW/HIDE START-->
+										<div class="ir" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" placeholder="IR No." type="text" name="ir_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="ir_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="ir_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="ir_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- IR Type SHOW/HIDE END-->
+										<!-- license details end-->
+									</div>
+								</div>
+							</div>
+							<!-- Rating input start-->
+							<div class="row">
+								<div class="col-md-12 col-sm-12">
+									<div class="form-group required" id="license">
+										<div class="row">
+											<div class="col-md-2 requiredField" for="location">Rating Type</div>
+											<div class="col-md-10">
+												<div class="row">
+													<!-- AFI checkbox Start-->
+													<div class="col-md-2 col-sm-6 col-6">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="AFI11" type="checkbox" name="rating_afi" value="AFI" onchange="showDivAFI(this.checked)" />
+															<label class="custom-control-label" for="AFI11">AFI</label>
+														</div>
+													</div>
+													<!-- AFI checkbox End-->
+													<!-- FIR checkbox Start-->
+													<div class="col-md-2 col-sm-6 col-6">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="FIR11" type="checkbox" name="rating_fir" value="FIR" onchange="showDivFIR(this.checked)" />
+															<label class="custom-control-label" for="FIR11">FIR</label>
+														</div>
+													</div>
+													<!-- FIR checkbox End-->
+													<!-- DCFI checkbox Start-->
+													<div class="col-md-2 col-sm-6 col-6">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="DCFI11" type="checkbox" name="rating_dcfi" value="DCFI" onchange="showDivDCFI(this.checked)" />
+															<label class="custom-control-label" for="DCFI11">DCFI</label>
+														</div>
+													</div>
+													<!-- DCFI checkbox End-->
+													<!-- CFI checkbox Start-->
+													<div class="col-md-2 col-sm-6 col-6">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="CFI11" type="checkbox" name="rating_cfi" value="CFI" onchange="showDivCFI(this.checked)" />
+															<label class="custom-control-label" for="CFI11">CFI</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- AFIR checkbox END-->
+										<!-- AFI SHOW/HIDE START-->
+									</div>
+									<div class="Rating_details">
+										<div class="AFI" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="AFI No." name="afi_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="afi_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="afi_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="afi_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- AFIR checkbox END-->
+										<!-- FIR checkbox START-->
+										<div class="FIR" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="FIR No." name="fir_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="fir_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="fir_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="fir_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<!-- FIR checkbox END-->
+										<!-- DCFI checkbox START-->
+										<div class="DCFI" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" type="text" placeholder="DCFI No." name="dcfi_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="dcfi_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="dcfi_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="dcfi_attach"></div>
+											</div>
+											<hr />
+										</div>
+										<div class="CFI" style="display:none">
+											<div class="row">
+												<div class="col-md-2 col-sm-6">
+													<div class="form-group">
+														<input class="form-control form-control-sm" placeholder="CFI No." type="text" name="cfi_no" />
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Issue date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="cfi_issue_date" data-provide="datepicker" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-12">
+													<div class="input-group input-group-sm">
+														<div class="input-group-append">
+															<div class="input-group-text">Expiry date </div>
+														</div>
+														<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="cfi_exp_date" />
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-6 file_plugin" name="cfi_attach"></div>
+											</div>
+											<hr />
+										</div>
+									</div>
+									<!-- Licence TYPE end-->
+									<!-- rating input end-->
+								</div>
+							</div>
+							<!-- certificates input start-->
+							<div class="row">
+								<div class="col-md-12 col-sm-12">
+									<div class="required" id="license">
+										<div class="row">
+											<label class="col-md-2 requiredField" for="location"> Certificates</label>
+											<div class="col-md-10">
+												<div class="row">
+													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="myFunctionmedical" type="checkbox" name="certificates_medical" value="Medical" onchange="showDivmedical(this.checked)" />
+															<label class="custom-control-label" for="myFunctionmedical">Medical File</label>
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="myFunctionrefresher" type="checkbox" name="certificates_refresher" value="REFREHER" onchange="showDivrefresher(this.checked)" />
+															<label class="custom-control-label" for="myFunctionrefresher">Refresher Course</label>
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+														<div class="custom-control custom-checkbox custom-control-inline">
+															<input class="custom-control-input" id="myFunctionavsec" type="checkbox" name="certificates_avsec" value="AVSEC" onchange="showDivavsec(this.checked)" />
+															<label class="custom-control-label" for="myFunctionavsec"> AVSEC Validity</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-sm-12">
+												<div class="certificates_details">
+													<!-- Medical SHOW/HIDE START-->
+													<div class="medical" style="display: none">
+														<div class="row">
+															<div class="col-md-3 col-sm-12">
+																<div class="custom-control custom-radio custom-control-inline">
+																	<input class="custom-control-input" id="med1" type="radio" name="class_type" value="class1" />
+																	<label class="custom-control-label" for="med1">Class1 </label>
+																</div>
+																<div class="custom-control custom-radio custom-control-inline">
+																	<input class="custom-control-input" id="med2" type="radio" name="class_type" value="class2" />
+																	<label class="custom-control-label" for="med2">Class2</label>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-3 col-sm-12">
+																<div class="form-group">
+																	<input class="form-control form-control-sm" type="text" placeholder="Assessment No." name="medical_no" />
+																</div>
+															</div>
+															<div class="col-md-3 col-sm-12">
+																<div class="input-group input-group-sm">
+																	<div class="input-group-append">
+																		<div class="input-group-text">Issue date </div>
+																	</div>
+																	<input class="form-control" data-date-format="dd/mm/yyyy" placeholder="issue date" name="medical_issue_date" data-provide="datepicker" />
+																</div>
+															</div>
+															<div class="col-md-3 col-sm-12">
+																<div class="input-group input-group-sm">
+																	<div class="input-group-append">
+																		<div class="input-group-text">Expiry date </div>
+																	</div>
+																	<input class="form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="expiry date" name="medical_exp_date" />
+																</div>
+															</div>
+															<div class="col-md-3 col-sm-6 file_plugin" name="medical_attach"></div>
+														</div>
+													</div>
+													<!-- Medical SHOW/HIDE END-->
+													<!-- REFRESHER SHOW/HIDE START-->
+													<div class="refresher" id="license" style="display: none">
+														<div class="row">
+															<div class="col-md-3 col-sm-6">
+																<input class="datepicker form-control form-control-sm" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="Latest Refresher Course Date(DD/MM/YYYY)" name="refresher_date" style="width:100%" />
+															</div>
+															<div class="col-md-3 col-sm-6">
+																<input class="form-control form-control-sm" type="text" placeholder="Enter Location Details" name="refresher_location" />
+															</div>
+															<div class="col-md-3 col-sm-6 file_plugin" name="refresher_attach"></div>
+														</div>
+													</div>
+													<!-- REFREHER SHOW/HIDE END-->
+													<!-- AVSEC SHOW/HIDE END-->
+													<div class="required avsec" id="license" style="display: none">
+														<div class="row">
+															<div class="col-md-3 col-sm-6">
+																<input class="datepicker form-control form-control-sm" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="Latest AVSEC Date(DD/MM/YYYY)" name="avsec_date" style="width:100%" />
+															</div>
+															<div class="col-md-3 col-sm-6">
+																<input class="form-control form-control-sm" type="text" placeholder="Enter Location Details" name="avsec_location" />
+															</div>
+															<div class="col-md-3 col-sm-6 file_plugin" name="avsec_attach"></div>
+														</div>
+													</div>
+													<!-- AVSEC SHOW/HIDE END-->
+													<!-- certificates input end-->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Experience input Start-->
+						<div class="border m-1 p-2">
+							<h5>Experience</h5>
+							<!-- Single Engine Aircrafts Start-->
+							<div class="row">
+								<div class="col-md-12 mt-3">
+									<p>Single Engine Aircrafts Flown</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown1" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown2" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown3" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown4" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown5" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="singleEngineFlown6" />
+									</div>
+								</div>
+							</div>
+							<!-- Single Engine Aircrafts End-->
+							<!-- Multiple Engine Aircrafts Start-->
+							<div class="row">
+								<div class="col-md-12">
+									<p>Multi Engine Aircrafts Flown</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown1" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown2" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown3" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown4" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown5" />
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<input class="form-control form-control-sm" type="text" name="multiEngineFlown6" />
+									</div>
+								</div>
+							</div>
+							<!-- Multiple Engine Aircrafts End-->
+							<!-- Hours Flown Start-->
+							<!-- Single Start-->
+							<div class="row p-2">
+								<div class="col-md-3">
+									<h5>Hours Flown</h5>
+									<p>Single </p>
+								</div>
+								<div class="col-md-4 border p-2">
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">Day Dual </span></div>
+												<input class="form-control form-control" id="th" type="text" name="single_day_dual_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="single_day_dual_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">PIC </span></div>
+												<input class="form-control form-control" id="th" type="text" name="single_day_PIC_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="single_day_PIC_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 border p-2">
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">Night Dual </span></div>
+												<input class="form-control form-control" id="th" type="text" name="single_night_dual_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH</span></div>
+												<input class="form-control form-control" id="tm" type="text" name="single_night_dual_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">PIC </span></div>
+												<input class="form-control form-control" id="th" type="text" name="single_night_PIC_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="single_night_PIC_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Single End-->
+							<!-- Multiple Start-->
+							<div class="row p-2">
+								<div class="col-md-3">
+									<p>Multi</p>
+								</div>
+								<div class="col-md-4 border p-2">
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">Day Dual </span></div>
+												<input class="form-control form-control" id="th" type="text" name="multiple_day_dual_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH</span></div>
+												<input class="form-control form-control" id="tm" type="text" name="multiple_day_dual_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">PIC </span></div>
+												<input class="form-control form-control" id="th" type="text" name="multiple_day_PIC_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="multiple_day_PIC_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 border p-2">
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">Night Dual </span></div>
+												<input class="form-control form-control" id="th" type="text" name="multiple_night_dual_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="multiple_night_dual_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-md-12">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">PIC </span></div>
+												<input class="form-control form-control" id="th" type="text" name="multiple_night_PIC_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="multiple_night_PIC_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 mt-3">
+									<p>Instrument</p>
+								</div>
+								<div class="col-md-9">
+									<div class="row mt-3">
+										<div class="col-md-6">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">Actual </span></div>
+												<input class="form-control form-control" id="th" type="text" name="instrument_actual_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="instrument_actual_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM </span></div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text"> Simulator</span></div>
+												<input class="form-control form-control" id="th" type="text" name="instrument_stimulate_hr" maxlength="4" />
+												<div class="input-group-prepend"><span class="input-group-text">HH </span></div>
+												<input class="form-control form-control" id="tm" type="text" name="instrument_stimulate_min" maxlength="2" />
+												<div class="input-group-prepend"><span class="input-group-text">MM </span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="border m-1 p-2">
+							<h5>Language Proficiency</h5>
+							<div class="form-group mt-3" id="language">
+								<div class="row">
+									<p class="col-md-4 col-sm-3">English Language: </p>
+									<div class="col-md-8 col-sm-9">
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r1" type="radio" name="language" onchange="showDiv(this.checked)" value="level 1" />
+											<label class="custom-control-label" for="r1" style="font-size: 14px;margin-top: 3px;">Level 1</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r2" type="radio" name="language" onchange="showDiv(this.checked)" value="level 2" />
+											<label class="custom-control-label" for="r2" style="font-size: 14px;margin-top: 3px;">Level 2</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r3" type="radio" name="language" onchange="showDiv(this.checked)" value="level 3" />
+											<label class="custom-control-label" for="r3" style="font-size: 14px;margin-top: 3px;">Level 3</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r4" type="radio" name="language" onchange="showDiv(this.checked)" value="level 4" />
+											<label class="custom-control-label" for="r4" style="font-size: 14px;margin-top: 3px;">Level 4</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r5" type="radio" name="language" onchange="showDiv(this.checked)" value="level 5" />
+											<label class="custom-control-label" for="r5" style="font-size: 14px;margin-top: 3px;">Level 5</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r6" type="radio" name="language" onchange="showDiv(this.checked)" value="level 6" />
+											<label class="custom-control-label" for="r6" style="font-size: 14px;margin-top: 3px;">Level 6</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline ml-3">
+											<input class="custom-control-input" id="r7" type="radio" name="language" onchange="HideDivNone(this.checked)" value="none" />
+											<label class="custom-control-label" for="r7" style="font-size: 14px;margin-top: 3px;">None</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="language_details" style="display: none">
+								<div class="form-group language" id="language">
+									<div class="row">
+										<div class="col-md-3 col-sm-3 col-3">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><span class="input-group-text">S.no</span></div>
+												<input class="form-control" id="level" type="text" name="english_level_type1" />
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-3 col-3">
+											<div class="input-group input-group-sm">
+												<div class="input-group-prepend"><b class="input-group-text">Validity </b></div>
+												<input class="datepicker form-control" data-date-format="dd/mm/yyyy" data-provide="datepicker" placeholder="Validity date" name="languageDate" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="border m-1 p-2">
+							<div class="row">
+								<input type="hidden" id="hiSign" name="user_signature" required="required" />
+								<div class="col-md-6 col-sm-6 col-12">
+									<p>Instructor Signature</p>
+									<div class="p4" onclick="getpusersign('instructor',this)" style="width:100px;height:100px;border:solid 1px #ccc;background-color:white;" id="pId"></div><span class="instructor_sign"></span>
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<div class="jscriptforms" style="display:none;"></div>
+									<div id="canvasDiv" style="display:none;">
+										<canvas id="canvasSignature" width="400px" height="300px" style="border:2px solid #000000;"></canvas><br />
+										<input type="button" onclick="CloseCanvas()" value="Close" style="margin:7px" />
+										<input type="button" onclick="clearSignature()" value="Clear" style="margin:7px" />
+										<input type="button" onclick="saveSignature()" value="Save" style="margin:7px" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12 text-center">
+								<div class="btn-group">
+									<input class="btn btn-primary mr-3" type="submit" value="Submit" />
+									<input class="btn btn-primary" type="reset" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

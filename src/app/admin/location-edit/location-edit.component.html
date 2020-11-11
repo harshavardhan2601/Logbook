@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="card-title mb-0">Edit Location</h5>
+				</div>
+				<div class="card-body">
+					<form #locationForm = ngForm >
+						<input id="role" type="hidden" />
+						<div class="container-fluid border m-1 p-2">
+							<h5 style="margin-top:0;margin-bottom:0">Location:
+								<div class="col-md-4">
+									<div class="input-group input-group-sm">
+										<div class="input-group-prepend"><span class="input-group-text">Location </span>
+										</div>
+										<input class="form-control as" type="text" id="loc_id" name="addlocation" ngModel
+											[(ngModel)]='locationdata.locations' required="required" />
+									</div>
+								</div>
+							</h5>
+						</div>
+						<div class="container-fluid mt-1">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 text-center">
+									<input class="btn btn-primary" (click)="submitForm()" type="submit"
+										value="submit"/>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

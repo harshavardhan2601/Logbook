@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 mt-3">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title">Staff List<a class="btn btn-primary btn-sm float-right" href="/admin/staff">Add Staff</a>
+						<input id="role" type="hidden" />
+					</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="offset-md-8 col-md-4 mb-3">
+							<div class="input-group input-group-sm">
+								<input class="form-control" id="searchStaffData" type="form-control" />
+								<div class="input-group-append">
+									<button class="btn_staff_search btn btn-primary">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="dataObject">
+						<div class="col-md-12">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th> First Name</th>
+										<th> last Name </th>
+										<th> Action </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor='let data of staffdata'>
+										<td>{{data.firstName}}</td>
+										<td>{{data.lastName}}</td>
+										<td>
+											<a class="btn btn-primary btn-xs mr-1 mb-2" [routerLink]="['/admin/staffView/', data._id]">View</a>
+											<a class="btn btn-primary btn-xs mr-1 mb-2" [routerLink]="['/admin/staffEdit/', data._id]">Edit</a>
+											<a class="btn btn-danger btn-xs mr-1 mb-2" (click)='delete(data._id)' >Delete</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
