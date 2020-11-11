@@ -20,6 +20,7 @@ export class AddStudentComponent implements OnInit {
   pid = true
   signd = false
   language = false
+  spl =false
   constructor() { }
 
   ngOnInit(): void {
@@ -93,7 +94,8 @@ export class AddStudentComponent implements OnInit {
     console.log(target.value)
     if (target.checked) {
       if (target.value == 'spl') {
-        document.getElementById('spl').style.display = 'block'
+        this.spl = true
+        // document.getElementById('spl').style.display = 'block'
       }
       else if (target.value == 'FRTOL') {
         document.getElementById('FRTOL').style.display = 'block'
@@ -133,7 +135,8 @@ export class AddStudentComponent implements OnInit {
 
 
       if (target.value == 'spl') {
-        document.getElementById('spl').style.display = 'none'
+        this.spl = false
+        // document.getElementById('spl').style.display = 'none'
       }
       else if (target.value == 'FRTOL') {
         document.getElementById('FRTOL').style.display = 'none'
