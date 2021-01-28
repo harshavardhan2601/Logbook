@@ -72,6 +72,11 @@ export class AuthService {
     return this.http.get(`${this.uri}/staffdelete/${id}`)
   }
 
+  addstudent(data) {
+    console.log(data)
+    return this.http.post(`${this.uri}/addStudentdata`, data)
+  }
+
 
   logout() {
     window.localStorage.removeItem('usertoken')

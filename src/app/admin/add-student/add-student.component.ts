@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 // import { FormGroup, FormBuilder, Validators } from  '@angular/forms';
 import SignaturePad from 'signature_pad';
 import { studentModal } from '../models/student';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-add-student',
@@ -21,7 +22,7 @@ export class AddStudentComponent implements OnInit {
   signd = false
   language = false
   spl =false
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -178,6 +179,10 @@ export class AddStudentComponent implements OnInit {
   onSubmit(da) {
     console.log(da)
     console.log(this.studentdata)
+    var data = this.studentdata
+    this.auth.addstudent(data).subscribe(res => {
+      console.log(res)
+    })
   }
 
 }

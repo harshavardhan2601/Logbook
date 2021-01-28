@@ -57,7 +57,7 @@
 						</div>
 						<div class="border m-1 p-2">
 							<h5>Personal Details</h5>
-							<!-- <input type="hidden" ngModel  name="instr_id" /> -->
+							<!-- <input type="hidden" [(ngModel)]='studentdata.student_type'  name="instr_id" /> -->
 							<div class="row mt-3">
 								<div class="col-md-4">
 									<div class="input-group input-group-sm">
@@ -72,7 +72,7 @@
 										<div class="input-group-prepend"><span class="input-group-text">Middle
 												Name</span></div>
 										<input class="form-control form-control-sm as up" type="text"
-											ngModel  name="middleName" />
+											[(ngModel)]='studentdata.middleName'  name="middleName" />
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -81,7 +81,7 @@
 												Name</span>
 										</div>
 										<input class="form-control form-control-sm as up" type="text"
-											ngModel  name="lastName" />
+											[(ngModel)]='studentdata.lastName'  name="lastName" />
 									</div>
 								</div>
 							</div>
@@ -92,7 +92,7 @@
 												Name</span>
 										</div>
 										<input class="form-control form-control-sm as up" id="lname"
-											type="text" ngModel  name="nickname" />
+											type="text" [(ngModel)]='studentdata.nickname'  name="nickname" />
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -101,7 +101,7 @@
 										</div>
 										<input class="form-control form-control-sm datepicker" id="dob" type="text"
 											data-date-format="dd/mm/yyyy" data-provide="datepicker"
-											ngModel  name="dateOfBirth" placeholder="DD/MM/YYYY" />
+											[(ngModel)]='studentdata.dob'  name="dob" placeholder="DD/MM/YYYY" />
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -110,13 +110,13 @@
 												id="gender_label">Gender</span></div>
 										<div class="custom-control custom-radio ml-2">
 											<input class="custom-control-input" id="gender_m" type="radio"
-												ngModel  name="gender" value="Male" required="required" />
+												[(ngModel)]='studentdata.student_type'  name="gender" value="Male" required="required" />
 											<label class="custom-control-label" for="gender_m"
 												style="font-size: 14px;margin-top: 3px;">Male</label>
 										</div>
 										<div class="custom-control custom-radio ml-1">
 											<input class="custom-control-input" id="gender_f" type="radio"
-												ngModel  name="gender" value="Female" />
+												[(ngModel)]='studentdata.student_type'  name="gender" value="Female" />
 											<label class="custom-control-label" for="gender_f"
 												style="font-size: 14px;margin-top: 3px;">Female </label>
 										</div>
@@ -128,7 +128,7 @@
 									<div class="input-group input-group-sm">
 										<div class="input-group-prepend"><span class="input-group-text">Blood Type
 											</span></div>
-										<select class="form-control" ngModel  name="bloodgroup">
+										<select class="form-control" [(ngModel)]='studentdata.student_type'  name="bloodgroup">
 											<option value="select">Select</option>
 											<option value="A+">A+</option>
 											<option value="A-">A-</option>
@@ -146,16 +146,16 @@
 										<div class="input-group-prepend"><span class="input-group-text">Allergies</span>
 										</div>
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="allergies" />
+											[(ngModel)]='studentdata.student_type'  name="allergies" />
 									</div>
 								</div>
 							</div>
 							<div class="row mt-2">
 								<div class="col-md-4 col-sm-12">
-									<textarea class="form-control form-control-sm" ngModel  name="healthIssue"
+									<textarea class="form-control form-control-sm" [(ngModel)]='studentdata.student_type'  name="healthIssue"
 										placeholder="Health Insurance (if any) "></textarea>
 								</div>
-								<!-- <div class="col-md-4 file_plugin" ngModel  name="file_attach1"> </div> -->
+								<!-- <div class="col-md-4 file_plugin" [(ngModel)]='studentdata.student_type'  name="file_attach1"> </div> -->
 							</div>
 						</div>
 						<!-- gender input start -->
@@ -172,7 +172,7 @@
 										<div class="input-group-prepend"><span class="input-group-text">Phone
 												Number</span></div>
 										<input class="form-control form-control-sm" id="cellNo" type="text"
-											ngModel  name="phoneNumber" required="required" maxlength="10" />
+											[(ngModel)]='studentdata.student_type'  name="phoneNumber" required="required" maxlength="10" />
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -180,7 +180,7 @@
 										<div class="input-group-prepend"><span class="input-group-text">Email
 												Address</span></div>
 										<input class="form-control form-control-sm" id="semail" type="text"
-											ngModel  name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" />
+											[(ngModel)]='studentdata.student_type'  name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" />
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -189,7 +189,7 @@
 											<div class="input-group-text">Password</div>
 										</div>
 										<input class="form-control form-control-sm" id="password" type="password"
-											ngModel  name="password" maxlength="10" minlength="6" />
+											[(ngModel)]='studentdata.student_type'  name="password" maxlength="10" minlength="6" />
 									</div>
 								</div>
 							</div>
@@ -346,7 +346,7 @@
 										<div class="col-md-1 col-sm-1 col-xs-1">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="chk custom-control-input" id="SPL_license" type="checkbox"
-													ngModel  name="spl_license" value="spl"
+													[(ngModel)]='studentdata.student_type'  name="spl_license" value="spl"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="SPL_license">SPL</label>
 											</div>
@@ -355,7 +355,7 @@
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="FRTOL1" type="checkbox"
-													ngModel  name="license_frtol" value="FRTOL"
+													[(ngModel)]='studentdata.student_type'  name="license_frtol" value="FRTOL"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="FRTOL1">FRTOL</label>
 											</div>
@@ -363,7 +363,7 @@
 										<div class="col-md-2 col-sm-1 col-xs-1">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="chk custom-control-input" id="FRTOLR_license"
-													type="checkbox" ngModel  name="FRTOLR_license" value="FRTOLR"
+													type="checkbox" [(ngModel)]='studentdata.student_type'  name="FRTOLR_license" value="FRTOLR"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label"
 													for="FRTOLR_license">FRTOL(R)</label>
@@ -373,7 +373,7 @@
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="COPRTR1" type="checkbox"
-													ngModel  name="license_coprtr" value="COPRTR"
+													[(ngModel)]='studentdata.student_type'  name="license_coprtr" value="COPRTR"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="COPRTR1">COPRTR</label>
 											</div>
@@ -383,7 +383,7 @@
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="PPL1" type="checkbox"
-													ngModel  name="license_ppl" value="ppl"
+													[(ngModel)]='studentdata.student_type'  name="license_ppl" value="ppl"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="PPL1">PPL</label>
 											</div>
@@ -393,7 +393,7 @@
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="CPL1" type="checkbox"
-													ngModel  name="license_cpl" value="cpl"
+													[(ngModel)]='studentdata.student_type'  name="license_cpl" value="cpl"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="CPL1">CPL</label>
 											</div>
@@ -403,7 +403,7 @@
 										<div class="col-md-2 col-sm-2 col-xs-2">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="CHPL1" type="checkbox"
-													ngModel  name="license_chpl" value="CHPL"
+													[(ngModel)]='studentdata.student_type'  name="license_chpl" value="CHPL"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="CHPL1">CHPL</label>
 											</div>
@@ -413,7 +413,7 @@
 										<div class="col-md-1 col-sm-1 col-xs-1">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="ATPL1" type="checkbox"
-													ngModel  name="license_atpl" value="ATPL"
+													[(ngModel)]='studentdata.student_type'  name="license_atpl" value="ATPL"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="ATPL1">ATPL</label>
 											</div>
@@ -423,7 +423,7 @@
 										<div class="col-md-1 col-sm-1 col-xs-1">
 											<div class="custom-control custom-checkbox custom-control-inline">
 												<input class="custom-control-input" id="IR1" type="checkbox"
-													ngModel  name="license_ir" value="ir"
+													[(ngModel)]='studentdata.student_type'  name="license_ir" value="ir"
 													(change)="showDivlan($event)" />
 												<label class="custom-control-label" for="IR1">IR</label>
 											</div>
@@ -441,7 +441,7 @@
 											<div class="row">
 												<div class="col-md-2 col-sm-6">
 													<input class="form-control form-control-sm" id="splNo"
-														placeholder="SPL No." type="text" ngModel  name="spl_no" />
+														placeholder="SPL No." type="text" [(ngModel)]='studentdata.student_type'  name="spl_no" />
 												</div>
 												<div class="col-md-4 col-sm-12">
 													<div class="input-group input-group-sm">
@@ -450,7 +450,7 @@
 														</div>
 														<input class="form-control" id="splIssuedate"
 															data-date-format="dd/mm/yyyy" data-provide="datepicker"
-															placeholder="issue date" ngModel  name="spl_issue_date" />
+															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="spl_issue_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-12">
@@ -460,11 +460,11 @@
 														</div>
 														<input class="form-control" id="splExprdate"
 															data-date-format="dd/mm/yyyy" data-provide="datepicker"
-															placeholder="expiry date" ngModel  name="spl_exp_date" />
+															placeholder="expiry date" [(ngModel)]='studentdata.student_type'  name="spl_exp_date" />
 													</div>
 												</div>
 												<!-- <div class="col-md-3 col-sm-6 file_plugin" id="splAttach"
-														ngModel  name="spl_attach"></div> -->
+														[(ngModel)]='studentdata.student_type'  name="spl_attach"></div> -->
 											</div>
 											<hr />
 										</div>
@@ -475,7 +475,7 @@
 													<div class="form-group">
 														<input class="form-control form-control-sm"
 															placeholder="FRTOL  No." type="text"
-															ngModel  name="frtol_no" />
+															[(ngModel)]='studentdata.student_type'  name="frtol_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -485,7 +485,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="issue date"
-															ngModel  name="frtol_issue_date" />
+															[(ngModel)]='studentdata.student_type'  name="frtol_issue_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-12">
@@ -495,7 +495,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="frtol_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="frtol_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -509,7 +509,7 @@
 												<div class="col-md-2 col-sm-6">
 													<input class="form-control form-control-sm" id="frtolrNo"
 														placeholder="FRTOL (R)  No." type="text"
-														ngModel  name="lt_FRTOLR_type1" />
+														[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_type1" />
 												</div>
 												<div class="col-md-4 col-sm-12">
 													<div class="input-group input-group-sm">
@@ -518,7 +518,7 @@
 														</div>
 														<input class="form-control" id="frtolrIssuedate"
 															data-date-format="dd/mm/yyyy" placeholder="issue date"
-															ngModel  name="lt_FRTOLR_date1"
+															[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_date1"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -530,7 +530,7 @@
 														<input class="form-control" id="frtolrExprdate"
 															data-date-format="dd/mm/yyyy" data-provide="datepicker"
 															placeholder="expiry date"
-															ngModel  name="lt_FRTOLR_Expiry_date1" />
+															[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_Expiry_date1" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin" id="frtolrAttach"></div>
@@ -544,7 +544,7 @@
 													<div class="form-group">
 														<input class="form-control form-control-sm"
 															placeholder="COPRTR No." type="text"
-															ngModel  name="coprtr_no" />
+															[(ngModel)]='studentdata.student_type'  name="coprtr_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -553,7 +553,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" ngModel  name="coprtr_issue_date"
+															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="coprtr_issue_date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -564,7 +564,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="coprtr_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="coprtr_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -578,7 +578,7 @@
 											<div class="row">
 												<div class="col-md-2 col-sm-6">
 													<input class="form-control form-control-sm" placeholder="PPL No."
-														type="text" ngModel  name="ppl_no" />
+														type="text" [(ngModel)]='studentdata.student_type'  name="ppl_no" />
 												</div>
 												<div class="col-md-4 col-sm-12">
 													<div class="input-group input-group-sm">
@@ -587,7 +587,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="issue date"
-															ngModel  name="ppl_issue_date" />
+															[(ngModel)]='studentdata.student_type'  name="ppl_issue_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-12">
@@ -597,7 +597,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="ppl_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="ppl_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -612,7 +612,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
-															placeholder="IND CPL No." ngModel  name="cpl_no" />
+															placeholder="IND CPL No." [(ngModel)]='studentdata.student_type'  name="cpl_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -621,7 +621,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" ngModel  name="cpl_issue_date"
+															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="cpl_issue_date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -632,7 +632,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expriy date"
-															ngModel  name="cpl_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="cpl_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -642,7 +642,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
-															placeholder="FORG CPL No." ngModel  name="cpl_forg_no" />
+															placeholder="FORG CPL No." [(ngModel)]='studentdata.student_type'  name="cpl_forg_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -652,7 +652,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															placeholder="issue date"
-															ngModel  name="cpl_issue_forg_date"
+															[(ngModel)]='studentdata.student_type'  name="cpl_issue_forg_date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -663,7 +663,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expriy date"
-															ngModel  name="cpl_exp_forg_date" />
+															[(ngModel)]='studentdata.student_type'  name="cpl_exp_forg_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -678,7 +678,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
-															placeholder="IND CHPL No." ngModel  name="chpl_no" />
+															placeholder="IND CHPL No." [(ngModel)]='studentdata.student_type'  name="chpl_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -687,7 +687,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															ngModel  name="chpl_issue_date" placeholder="issue date"
+															[(ngModel)]='studentdata.student_type'  name="chpl_issue_date" placeholder="issue date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -698,7 +698,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="chpl_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="chpl_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin"></div>
@@ -708,7 +708,7 @@
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
 															placeholder="FORG CHPL No."
-															ngModel  name="chpl_forg_no" />
+															[(ngModel)]='studentdata.student_type'  name="chpl_forg_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -717,7 +717,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															ngModel  name="chpl_issue_forg_date"
+															[(ngModel)]='studentdata.student_type'  name="chpl_issue_forg_date"
 															placeholder="issue date" data-provide="datepicker" />
 													</div>
 												</div>
@@ -728,7 +728,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="chpl_exp_forg_date" />
+															[(ngModel)]='studentdata.student_type'  name="chpl_exp_forg_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -743,7 +743,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
-															ngModel  name="atpl_no" placeholder="IND ATPL No." />
+															[(ngModel)]='studentdata.student_type'  name="atpl_no" placeholder="IND ATPL No." />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -752,7 +752,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															ngModel  name="atpl_issue_date" placeholder="issue date"
+															[(ngModel)]='studentdata.student_type'  name="atpl_issue_date" placeholder="issue date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -763,7 +763,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="atpl_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="atpl_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin"></div>
@@ -772,7 +772,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" type="text"
-															ngModel  name="atpl_forg_no"
+															[(ngModel)]='studentdata.student_type'  name="atpl_forg_no"
 															placeholder="FORG ATPL No." />
 													</div>
 												</div>
@@ -782,7 +782,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															ngModel  name="atpl_issue_forg_date"
+															[(ngModel)]='studentdata.student_type'  name="atpl_issue_forg_date"
 															placeholder="issue date" data-provide="datepicker" />
 													</div>
 												</div>
@@ -793,7 +793,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="atpl_exp_forg_date" />
+															[(ngModel)]='studentdata.student_type'  name="atpl_exp_forg_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -808,7 +808,7 @@
 												<div class="col-md-2 col-sm-6">
 													<div class="form-group">
 														<input class="form-control form-control-sm" placeholder="IR No."
-															type="text" ngModel  name="ir_no" />
+															type="text" [(ngModel)]='studentdata.student_type'  name="ir_no" />
 													</div>
 												</div>
 												<div class="col-md-4 col-sm-12">
@@ -817,7 +817,7 @@
 															<div class="input-group-text">Issue date </div>
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" ngModel  name="ir_issue_date"
+															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="ir_issue_date"
 															data-provide="datepicker" />
 													</div>
 												</div>
@@ -828,7 +828,7 @@
 														</div>
 														<input class="form-control" data-date-format="dd/mm/yyyy"
 															data-provide="datepicker" placeholder="expiry date"
-															ngModel  name="ir_exp_date" />
+															[(ngModel)]='studentdata.student_type'  name="ir_exp_date" />
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 file_plugin">
@@ -855,7 +855,7 @@
 														<div
 															class="custom-control custom-checkbox custom-control-inline">
 															<input class="custom-control-input" id="myFunctionmedical"
-																type="checkbox" ngModel  name="certificates_medical"
+																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_medical"
 																value="medical"
 																(change)="showDivlan($event)" />
 															<label class="custom-control-label"
@@ -866,7 +866,7 @@
 														<div
 															class="custom-control custom-checkbox custom-control-inline">
 															<input class="custom-control-input" id="myFunctionrefresher"
-																type="checkbox" ngModel  name="certificates_refresher"
+																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_refresher"
 																value="refresher"
 																(change)="showDivlan($event)" />
 															<label class="custom-control-label"
@@ -877,7 +877,7 @@
 														<div
 															class="custom-control custom-checkbox custom-control-inline">
 															<input class="custom-control-input" id="myFunctionavsec"
-																type="checkbox" ngModel  name="certificates_avsec"
+																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_avsec"
 																value="avsec" (change)="showDivlan($event)" />
 															<label class="custom-control-label" for="myFunctionavsec">
 																AVSEC Validity</label>
@@ -896,7 +896,7 @@
 																<div
 																	class="custom-control custom-radio custom-control-inline">
 																	<input class="custom-control-input" id="med1"
-																		type="radio" ngModel  name="class_type"
+																		type="radio" [(ngModel)]='studentdata.student_type'  name="class_type"
 																		value="class1" />
 																	<label class="custom-control-label"
 																		for="med1">Class1 </label>
@@ -904,7 +904,7 @@
 																<div
 																	class="custom-control custom-radio custom-control-inline">
 																	<input class="custom-control-input" id="med2"
-																		type="radio" ngModel  name="class_type"
+																		type="radio" [(ngModel)]='studentdata.student_type'  name="class_type"
 																		value="class2" />
 																	<label class="custom-control-label"
 																		for="med2">Class2</label>
@@ -915,7 +915,7 @@
 															<div class="col-md-3 col-sm-12">
 																<input class="form-control form-control-sm" type="text"
 																	placeholder="Assessment No."
-																	ngModel  name="medical_no" />
+																	[(ngModel)]='studentdata.student_type'  name="medical_no" />
 															</div>
 															<div class="col-md-3 col-sm-12">
 																<div class="input-group input-group-sm">
@@ -926,7 +926,7 @@
 																	<input class="form-control"
 																		data-date-format="dd/mm/yyyy"
 																		placeholder="issue date"
-																		ngModel  name="medical_issue_date"
+																		[(ngModel)]='studentdata.student_type'  name="medical_issue_date"
 																		data-provide="datepicker" />
 																</div>
 															</div>
@@ -940,7 +940,7 @@
 																		data-date-format="dd/mm/yyyy"
 																		data-provide="datepicker"
 																		placeholder="expiry date"
-																		ngModel  name="medical_exp_date" />
+																		[(ngModel)]='studentdata.student_type'  name="medical_exp_date" />
 																</div>
 															</div>
 															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
@@ -955,13 +955,13 @@
 																	data-date-format="dd/mm/yyyy"
 																	data-provide="datepicker"
 																	placeholder="Latest Refresher Course Date(DD/MM/YYYY)"
-																	ngModel  name="refresher_date"
+																	[(ngModel)]='studentdata.student_type'  name="refresher_date"
 																	style="width:100%" />
 															</div>
 															<div class="col-md-3 col-sm-12 mb-2">
 																<input class="form-control form-control-sm as"
 																	type="text" placeholder="Enter Location Details"
-																	ngModel  name="refresher_location" />
+																	[(ngModel)]='studentdata.student_type'  name="refresher_location" />
 															</div>
 															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 														</div>
@@ -975,12 +975,12 @@
 																	data-date-format="dd/mm/yyyy"
 																	data-provide="datepicker"
 																	placeholder="Latest AVSEC Date(DD/MM/YYYY)"
-																	ngModel  name="avsec_date" style="width:100%" />
+																	[(ngModel)]='studentdata.student_type'  name="avsec_date" style="width:100%" />
 															</div>
 															<div class="col-md-3 col-sm-12 mb-2">
 																<input class="form-control form-control-sm as"
 																	type="text" placeholder="Enter Location Details"
-																	ngModel  name="avsec_location" />
+																	[(ngModel)]='studentdata.student_type'  name="avsec_location" />
 															</div>
 															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 														</div>
@@ -1007,19 +1007,19 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown1" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown1" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown2" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown2" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown3" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown3" />
 									</div>
 								</div>
 							</div>
@@ -1027,19 +1027,19 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown4" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown4" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown5" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown5" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="singleEngineFlown6" />
+											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown6" />
 									</div>
 								</div>
 							</div>
@@ -1054,19 +1054,19 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown1" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown1" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown2" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown2" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown3" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown3" />
 									</div>
 								</div>
 							</div>
@@ -1074,19 +1074,19 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown4" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown4" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown5" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown5" />
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<input class="form-control form-control-sm" type="text"
-											ngModel  name="multiEngineFlown6" />
+											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown6" />
 									</div>
 								</div>
 							</div>
@@ -1106,11 +1106,11 @@
 														Dual
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="single_day_dual_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="single_day_dual_hr" maxlength="4" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">HH</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="single_day_dual_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="single_day_dual_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1122,11 +1122,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">PIC
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="single_day_PIC_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="single_day_PIC_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="single_day_PIC_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="single_day_PIC_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1140,11 +1140,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">Night
 														Dual </span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="single_night_dual_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="single_night_dual_hr" maxlength="4" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">HH</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="single_night_dual_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="single_night_dual_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1156,11 +1156,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">PIC
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="single_night_PIC_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="single_night_PIC_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="single_night_PIC_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="single_night_PIC_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1182,11 +1182,11 @@
 														Dual
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="multiple_day_dual_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_day_dual_hr" maxlength="4" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">HH</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="multiple_day_dual_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_day_dual_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1198,11 +1198,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">PIC
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="multiple_day_PIC_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_day_PIC_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="multiple_day_PIC_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_day_PIC_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1216,11 +1216,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">Night
 														Dual </span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="multiple_night_dual_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_night_dual_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="multiple_night_dual_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_night_dual_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1232,11 +1232,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">PIC
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="multiple_night_PIC_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_night_PIC_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="multiple_night_PIC_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="multiple_night_PIC_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1255,11 +1255,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">Actual
 													</span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="instrument_actual_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="instrument_actual_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="instrument_actual_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="instrument_actual_min" maxlength="2" />
 												<div class="input-group-prepend"><span class="input-group-text">MM
 													</span></div>
 											</div>
@@ -1269,11 +1269,11 @@
 												<div class="input-group-prepend"><span class="input-group-text">
 														Stimulator </span></div>
 												<input class="form-control form-control" id="th" type="text"
-													ngModel  name="instrument_stimulate_hr" maxlength="4" />
+													[(ngModel)]='studentdata.student_type'  name="instrument_stimulate_hr" maxlength="4" />
 												<div class="input-group-prepend"><span class="input-group-text">HH
 													</span></div>
 												<input class="form-control form-control" id="tm" type="text"
-													ngModel  name="instrument_stimulate_min" maxlength="2" />
+													[(ngModel)]='studentdata.student_type'  name="instrument_stimulate_min" maxlength="2" />
 												<div class="input-group-prepend"><span
 														class="input-group-text">MM</span></div>
 											</div>
@@ -1299,43 +1299,43 @@
 									<div class="col-md-8 col-sm-9">
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r1" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 1" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 1" />
 											<label class="custom-control-label" for="r1"
 												style="font-size: 14px;margin-top: 3px;">Level 1</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r2" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 2" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 2" />
 											<label class="custom-control-label" for="r2"
 												style="font-size: 14px;margin-top: 3px;">Level 2</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r3" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 3" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 3" />
 											<label class="custom-control-label" for="r3"
 												style="font-size: 14px;margin-top: 3px;">Level 3</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r4" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 4" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 4" />
 											<label class="custom-control-label" for="r4"
 												style="font-size: 14px;margin-top: 3px;">Level 4</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r5" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 5" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 5" />
 											<label class="custom-control-label" for="r5"
 												style="font-size: 14px;margin-top: 3px;">Level 5</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r6" type="radio"
-												ngModel  name="language" (change)="showDiv($event)" value="level 6" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 6" />
 											<label class="custom-control-label" for="r6"
 												style="font-size: 14px;margin-top: 3px;">Level 6</label>
 										</div>
 										<div class="custom-control custom-radio custom-control-inline ml-3">
 											<input class="custom-control-input" id="r7" type="radio"
-												ngModel  name="language" (change)="hideDiv($event)" value="none" />
+												[(ngModel)]='studentdata.student_type'  name="language" (change)="hideDiv($event)" value="none" />
 											<label class="custom-control-label" for="r7"
 												style="font-size: 14px;margin-top: 3px;">None</label>
 										</div>
@@ -1351,7 +1351,7 @@
 													<div class="input-group-text">S.no</div>
 												</div>
 												<input class="form-control" id="level" type="text"
-													ngModel  name="english_level_type1" />
+													[(ngModel)]='studentdata.student_type'  name="english_level_type1" />
 											</div>
 										</div>
 										<div class="col-md-5 col-sm-6 col-6">
@@ -1361,7 +1361,7 @@
 												</div>
 												<input class="form-control datepicker" id="level1"
 													placeholder="DD/MM/YYYY" data-date-format="dd/mm/yyyy"
-													ngModel  name="languageDate" data-provide="datepicker" />
+													[(ngModel)]='studentdata.student_type'  name="languageDate" data-provide="datepicker" />
 											</div>
 										</div>
 									</div>
@@ -1389,7 +1389,7 @@
 						<div class="row m-1 p-2">
 							<div class="col-md-12 text-center">
 								<div class="custom-control custom-checkbox">
-									<input class="custom-control-input" id="terms" ngModel  name="terms"
+									<input class="custom-control-input" id="terms" [(ngModel)]='studentdata.student_type'  name="terms"
 										type="checkbox" required="required" value="yes" />
 									<label class="custom-control-label" for="terms"> These details are provided by
 										me

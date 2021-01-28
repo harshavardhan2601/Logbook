@@ -17,44 +17,44 @@ var Hours = require('../models/hours');
 var user_model = require('../models/user_model');
 var pilot_logbook = require('../models/pilot_logbook');
 
-// router.post('/login', function (req, res, next) {
-//     var reqs = req.body;
-//     let userObj= {
-//       email: reqs.email,
-//       password: reqs.password,
-//       role_id:0
-//     }
-//     mongoose.model('Users').create(userObj, (err, dataObj) => {
-//       if (err) { console.log(err) }
-//       else {
-//         res.json(dataObj);
-//       }
-//     });
-//   });
-
 router.post('/login', function (req, res, next) {
     var reqs = req.body;
-    mongoose.model('Users').findOne({ email: reqs.email, password: reqs.password }, function (err, dataObj) {
-        if (err) {
-            console.log(err);
-        } else {
-            if (dataObj) {
-                // console.log(dataObj);
-                var userObj = dataObj;
-                req.session.user_id = userObj._id;
-                req.session.email_id = dataObj.email;
-                req.session.role_id = dataObj.role_id;
-                console.log(req.session.role_id);
-                console.log(req.session.email_id);
-                res.json(userObj);
-            }
-            else {
-                res.send({ status: 2, massage: 'Failure' });
-            }
-
+    let userObj = {
+        email: reqs.email,
+        password: reqs.password,
+        role_id: 0
+    }
+    mongoose.model('Users').create(userObj, (err, dataObj) => {
+        if (err) { console.log(err) }
+        else {
+            res.json(dataObj);
         }
-    })
+    });
 });
+
+// router.post('/login', function (req, res, next) {
+//     var reqs = req.body;
+//     mongoose.model('Users').findOne({ email: reqs.email, password: reqs.password }, function (err, dataObj) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             if (dataObj) {
+//                 // console.log(dataObj);
+//                 var userObj = dataObj;
+//                 req.session.user_id = userObj._id;
+//                 req.session.email_id = dataObj.email;
+//                 req.session.role_id = dataObj.role_id;
+//                 console.log(req.session.role_id);
+//                 console.log(req.session.email_id);
+//                 res.json(userObj);
+//             }
+//             else {
+//                 res.send({ status: 2, massage: 'Failure' });
+//             }
+
+//         }
+//     })
+// });
 
 //pin generate//
 function ticketid(length) {
@@ -147,20 +147,20 @@ router.post('/updateLocationData', /*isAuthenticated,*/ function (req, res, next
 
 router.get('/locationdelete/:id', (req, res) => {
     try {
-      var dataId = req.params.id;
-      console.log(dataId);
-      mongoose.model('NewLocation').remove({ _id: dataId }, (err, dataObj) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.json(dataObj);
-        }
-      });
+        var dataId = req.params.id;
+        console.log(dataId);
+        mongoose.model('NewLocation').remove({ _id: dataId }, (err, dataObj) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(dataObj);
+            }
+        });
     }
     catch (e) {
-      console.log();
+        console.log();
     }
-  });
+});
 
 
 // staff list
@@ -333,6 +333,17 @@ router.get('/staffdelete/:id', (req, res) => {
         console.log();
     }
 });
+
+router.post('/addStudentdata', function (req, res, next) {
+    try {
+        var reqs = req.body;
+        console.log(reqs)
+    }
+    catch (e) {
+        console.log(e);
+    }
+});
+
 
 
 router.get('/logout', function (req, res) {
