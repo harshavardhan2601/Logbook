@@ -9,1404 +9,1500 @@
 				</div>
 				<div class="card-body">
 					<form #studentForm='ngForm'>
-					<input id="role" type="hidden" />
-					<div class="row" id="can" [hidden]="formdiv">
-						<div class="signature-pad">
-							<div class="signature-pad--body">
-								<canvas #sPad width="800" height="400" style="touch-action: none;"></canvas>
+						<input id="role" type="hidden" />
+						<div class="row" id="can" [hidden]="formdiv">
+							<div class="signature-pad">
+								<div class="signature-pad--body">
+									<canvas #sPad width="800" height="400" style="touch-action: none;"></canvas>
+								</div>
 							</div>
+							<br>
+							<br>
+							<section class="container-fluid mt-3">
+								<div class="row" style="padding-left: 30%;">
+									<div class="col-md-2">
+										<button class="btn btn-block btn-danger" (click)="close()">Close</button>
+									</div>
+									<div class="col-md-2">
+										<button class="btn btn-block btn-primary" (click)="clear()">Clear</button>
+									</div>
+									<div class="col-md-2">
+										<button class="btn btn-block btn-success" (click)="save()">Save</button>
+									</div>
+								</div>
+							</section>
 						</div>
-						<br>
-						<br>
-						<section class="container-fluid mt-3">
-							<div class="row" style="padding-left: 30%;">
-								<div class="col-md-2">
-									<button class="btn btn-block btn-danger" (click)="close()">Close</button>
-								</div>
-								<div class="col-md-2">
-									<button class="btn btn-block btn-primary" (click)="clear()">Clear</button>
-								</div>
-								<div class="col-md-2">
-									<button class="btn btn-block btn-success" (click)="save()">Save</button>
-								</div>
-							</div>
-						</section>
-					</div>
-					<div id="formDiv" *ngIf='formdiv'>
-						<div class="border m-1 p-2">
-							<div class="row">
-								<div class="col-md-3"><b>Type of Student</b></div>
-								<div class="col-md-8">
-									<div class="custom-control custom-radio custom-control-inline">
-										<input class="custom-control-input" id="FullTime" type="radio"
-										[(ngModel)]='studentdata.student_type'  name="student_type" value="FullTime" required="required" />
-										<label class="custom-control-label" for="FullTime">Full Time </label>
-									</div>
-									<div class="custom-control custom-radio custom-control-inline">
-										<input class="custom-control-input" id="Renewal" type="radio"
-										[(ngModel)]='studentdata.student_type'  name="student_type" value="Renewal" />
-										<label class="custom-control-label" for="Renewal">Renewal</label>
-									</div>
-									<div class="custom-control custom-radio custom-control-inline">
-										<input class="custom-control-input" id="Convertion" type="radio"
-										[(ngModel)]='studentdata.student_type'  name="student_type" value="Conversion" />
-										<label class="custom-control-label" for="Convertion">Conversion </label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<h5>Personal Details</h5>
-							<!-- <input type="hidden" [(ngModel)]='studentdata.student_type'  name="instr_id" /> -->
-							<div class="row mt-3">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">First
-												Name</span></div>
-										<input class="form-control form-control-sm up as" id="fname"
-											type="text" [(ngModel)]='studentdata.firstName'  name="firstName" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Middle
-												Name</span></div>
-										<input class="form-control form-control-sm as up" type="text"
-											[(ngModel)]='studentdata.middleName'  name="middleName" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Last
-												Name</span>
+						<div id="formDiv" *ngIf='formdiv'>
+							<div class="border m-1 p-2">
+								<div class="row">
+									<div class="col-md-3"><b>Type of Student</b></div>
+									<div class="col-md-8">
+										<div class="custom-control custom-radio custom-control-inline">
+											<input class="custom-control-input" id="FullTime" type="radio"
+												[(ngModel)]='studentdata.student_type' name="student_type"
+												value="FullTime" required="required" />
+											<label class="custom-control-label" for="FullTime">Full Time </label>
 										</div>
-										<input class="form-control form-control-sm as up" type="text"
-											[(ngModel)]='studentdata.lastName'  name="lastName" />
-									</div>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Nick
-												Name</span>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input class="custom-control-input" id="Renewal" type="radio"
+												[(ngModel)]='studentdata.student_type' name="student_type"
+												value="Renewal" />
+											<label class="custom-control-label" for="Renewal">Renewal</label>
 										</div>
-										<input class="form-control form-control-sm as up" id="lname"
-											type="text" [(ngModel)]='studentdata.nickname'  name="nickname" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">D.O.B</span>
-										</div>
-										<input class="form-control form-control-sm datepicker" id="dob" type="text"
-											data-date-format="dd/mm/yyyy" data-provide="datepicker"
-											[(ngModel)]='studentdata.dob'  name="dob" placeholder="DD/MM/YYYY" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text"
-												id="gender_label">Gender</span></div>
-										<div class="custom-control custom-radio ml-2">
-											<input class="custom-control-input" id="gender_m" type="radio"
-												[(ngModel)]='studentdata.gender'  name="gender" value="Male" required="required" />
-											<label class="custom-control-label" for="gender_m"
-												style="font-size: 14px;margin-top: 3px;">Male</label>
-										</div>
-										<div class="custom-control custom-radio ml-1">
-											<input class="custom-control-input" id="gender_f" type="radio"
-												[(ngModel)]='studentdata.gender'  name="gender" value="Female" />
-											<label class="custom-control-label" for="gender_f"
-												style="font-size: 14px;margin-top: 3px;">Female </label>
+										<div class="custom-control custom-radio custom-control-inline">
+											<input class="custom-control-input" id="Convertion" type="radio"
+												[(ngModel)]='studentdata.student_type' name="student_type"
+												value="Conversion" />
+											<label class="custom-control-label" for="Convertion">Conversion </label>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="row mt-2">
-								<div class="col-md-4 col-sm-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Blood Type
-											</span></div>
-										<select class="form-control" [(ngModel)]='studentdata.bloodgroup'  name="bloodgroup">
-											<option value="select">Select</option>
-											<option value="A+">A+</option>
-											<option value="A-">A-</option>
-											<option value="B+">B+</option>
-											<option value="B-">B-</option>
-											<option value="O+">O+</option>
-											<option value="O-">O-</option>
-											<option value="AB+">AB+</option>
-											<option value="AB-">AB-</option>
-										</select>
+							<div class="border m-1 p-2">
+								<h5>Personal Details</h5>
+								<!-- <input type="hidden" [(ngModel)]='studentdata.student_type'  name="instr_id" /> -->
+								<div class="row mt-3">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">First
+													Name</span></div>
+											<input class="form-control form-control-sm up as" id="fname" type="text"
+												[(ngModel)]='studentdata.firstName' name="firstName" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Middle
+													Name</span></div>
+											<input class="form-control form-control-sm as up" type="text"
+												[(ngModel)]='studentdata.middleName' name="middleName" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Last
+													Name</span>
+											</div>
+											<input class="form-control form-control-sm as up" type="text"
+												[(ngModel)]='studentdata.lastName' name="lastName" />
+										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Allergies</span>
+								<div class="row mt-2">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Nick
+													Name</span>
+											</div>
+											<input class="form-control form-control-sm as up" id="lname" type="text"
+												[(ngModel)]='studentdata.nickname' name="nickname" />
 										</div>
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.allergies'  name="allergies" />
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">D.O.B</span>
+											</div>
+											<input class="form-control form-control-sm datepicker" id="dob" type="text"
+												data-date-format="dd/mm/yyyy" data-provide="datepicker"
+												[(ngModel)]='studentdata.dob' name="dob" placeholder="DD/MM/YYYY" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text"
+													id="gender_label">Gender</span></div>
+											<div class="custom-control custom-radio ml-2">
+												<input class="custom-control-input" id="gender_m" type="radio"
+													[(ngModel)]='studentdata.gender' name="gender" value="Male"
+													required="required" />
+												<label class="custom-control-label" for="gender_m"
+													style="font-size: 14px;margin-top: 3px;">Male</label>
+											</div>
+											<div class="custom-control custom-radio ml-1">
+												<input class="custom-control-input" id="gender_f" type="radio"
+													[(ngModel)]='studentdata.gender' name="gender" value="Female" />
+												<label class="custom-control-label" for="gender_f"
+													style="font-size: 14px;margin-top: 3px;">Female </label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-4 col-sm-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Blood Type
+												</span></div>
+											<select class="form-control" [(ngModel)]='studentdata.bloodgroup'
+												name="bloodgroup">
+												<option value="select">Select</option>
+												<option value="A+">A+</option>
+												<option value="A-">A-</option>
+												<option value="B+">B+</option>
+												<option value="B-">B-</option>
+												<option value="O+">O+</option>
+												<option value="O-">O-</option>
+												<option value="AB+">AB+</option>
+												<option value="AB-">AB-</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span
+													class="input-group-text">Allergies</span>
+											</div>
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.allergies' name="allergies" />
+										</div>
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-4 col-sm-12">
+										<textarea class="form-control form-control-sm"
+											[(ngModel)]='studentdata.healthIssue' name="healthIssue"
+											placeholder="Health Insurance (if any) "></textarea>
+									</div>
+									<!-- <div class="col-md-4 file_plugin" [(ngModel)]='studentdata.student_type'  name="file_attach1"> </div> -->
+								</div>
+							</div>
+							<!-- gender input start -->
+							<!-- gender input start-->
+							<div class="border m-1 p-2">
+								<div class="row mt-2">
+									<div class="col-md-2">
+										<h5>Contact Details</h5>
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Phone
+													Number</span></div>
+											<input class="form-control form-control-sm" id="cellNo" type="text"
+												[(ngModel)]='studentdata.phoneNumber' name="phoneNumber"
+												required="required" maxlength="10" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Email
+													Address</span></div>
+											<input class="form-control form-control-sm" id="semail" type="text"
+												[(ngModel)]='studentdata.student_type' name="email"
+												pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">Password</div>
+											</div>
+											<input class="form-control form-control-sm" id="password" type="password"
+												[(ngModel)]='studentdata.student_type' name="password" maxlength="10"
+												minlength="6" />
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="row mt-2">
-								<div class="col-md-4 col-sm-12">
-									<textarea class="form-control form-control-sm" [(ngModel)]='studentdata.healthIssue'  name="healthIssue"
-										placeholder="Health Insurance (if any) "></textarea>
-								</div>
-								<!-- <div class="col-md-4 file_plugin" [(ngModel)]='studentdata.student_type'  name="file_attach1"> </div> -->
-							</div>
-						</div>
-						<!-- gender input start -->
-						<!-- gender input start-->
-						<div class="border m-1 p-2">
-							<div class="row mt-2">
-								<div class="col-md-2">
-									<h5>Contact Details</h5>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Phone
-												Number</span></div>
-										<input class="form-control form-control-sm" id="cellNo" type="text"
-											[(ngModel)]='studentdata.phoneNumber'  name="phoneNumber" required="required" maxlength="10" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Email
-												Address</span></div>
-										<input class="form-control form-control-sm" id="semail" type="text"
-											[(ngModel)]='studentdata.student_type'  name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">Password</div>
+							<div class="border m-1 p-2">
+								<h5>Parent/Guardian Information</h5>
+								<div class="row mt-3">
+									<div class="col-md-4 col-sm-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">First Name</div>
+											</div>
+											<input class="form-control form-control-sm up" id="pFname" type="text"
+												[(ngModel)]='guardianFName' name="guardianFName" />
 										</div>
-										<input class="form-control form-control-sm" id="password" type="password"
-											[(ngModel)]='studentdata.student_type'  name="password" maxlength="10" minlength="6" />
+									</div>
+									<div class="col-md-4 col-sm-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">Middle Name</div>
+											</div>
+											<input class="form-control form-control-sm up" type="text"
+												[(ngModel)]='studentdata.guardianMName' name="guardianMName" />
+										</div>
+									</div>
+									<div class="col-md-4 col-sm-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">Last Name</div>
+											</div>
+											<input class="form-control form-control-sm up" id="pLname" type="text"
+												[(ngModel)]='studentdata.guardianLName' name="guardianLName" />
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<h5>Parent/Guardian Information</h5>
-							<div class="row mt-3">
-								<div class="col-md-4 col-sm-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">First Name</div>
+								<div class="row mt-2">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">Phone Number</div>
+											</div>
+											<input class="form-control form-control-sm" id="pCell" type="text"
+												[(ngModel)]='studentdata.guardianPhone' name="guardianPhone"
+												maxlength="10" />
 										</div>
-										<input class="form-control form-control-sm up" id="pFname"
-											type="text" [(ngModel)]='guardianFName'  name="guardianFName" />
 									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">Middle Name</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-append">
+												<div class="input-group-text">Email Address</div>
+											</div>
+											<input class="form-control form-control-sm" id="pEmail" type="text"
+												[(ngModel)]='studentdata.guardianEmail' name="guardianEmail" />
 										</div>
-										<input class="form-control form-control-sm up" type="text"
-											[(ngModel)]='studentdata.guardianMName'  name="guardianMName" />
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">Last Name</div>
-										</div>
-										<input class="form-control form-control-sm up" id="pLname"
-											type="text" [(ngModel)]='studentdata.guardianLName'  name="guardianLName" />
 									</div>
 								</div>
 							</div>
-							<div class="row mt-2">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">Phone Number</div>
+							<div class="border m-1 p-2">
+								<div class="row mt-2">
+									<div class="col-md-2">
+										<h5>Address Details</h5>
+									</div>
+								</div>
+								<div class="row mt-2">
+									<div class="col-md-12">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Current
+													Address
+												</span></div>
+											<input class="form-control form-control-sm" id="address" type="text"
+												[(ngModel)]='studentdata.current_address' name="current_address" />
 										</div>
-										<input class="form-control form-control-sm" id="pCell" type="text"
-											[(ngModel)]='studentdata.guardianPhone'  name="guardianPhone" maxlength="10" />
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-append">
-											<div class="input-group-text">Email Address</div>
+								<div class="row mt-2">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text"> City</span>
+											</div>
+											<input class="form-control form-control-sm as" id="city" type="text"
+												[(ngModel)]='studentdata.current_city' name="current_city" />
 										</div>
-										<input class="form-control form-control-sm" id="pEmail" type="text"
-											[(ngModel)]='studentdata.guardianEmail'  name="guardianEmail" />
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<div class="row mt-2">
-								<div class="col-md-2">
-									<h5>Address Details</h5>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-12">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Current
-												Address
-											</span></div>
-										<input class="form-control form-control-sm" id="address" type="text"
-											[(ngModel)]='studentdata.current_address'  name="current_address" />
-									</div>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text"> City</span>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">State</span>
+											</div>
+											<select class="form-control" id="state"
+												[(ngModel)]='studentdata.current_state' name="current_state">
+												<option value="">Select</option>
+											</select>
 										</div>
-										<input class="form-control form-control-sm as" id="city" type="text"
-											[(ngModel)]='studentdata.current_city'  name="current_city" />
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">State</span>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text"> Postal
+													Code</span></div>
+											<input class="form-control form-control-sm" id="pincode" type="text"
+												[(ngModel)]='studentdata.current_post' name="current_post" />
 										</div>
-										<select class="form-control" id="state" [(ngModel)]='studentdata.current_state'  name="current_state">
-											<option value="">Select</option>
-										</select>
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text"> Postal
-												Code</span></div>
-										<input class="form-control form-control-sm" id="pincode" type="text"
-											[(ngModel)]='studentdata.current_post'  name="current_post" />
+								<div class="row mt-2 ml-2">
+									<div class="custom-control custom-checkbox custom-control-inline">
+										<input class="custom-control-input" id="same" type="checkbox"
+											(change)="setpermaAdrr($event,studentForm.value)" />
+										<label class="custom-control-label" for="same">same as above</label>
 									</div>
 								</div>
-							</div>
-							<div class="row mt-2 ml-2">
-								<div class="custom-control custom-checkbox custom-control-inline">
-									<input class="custom-control-input" id="same" type="checkbox"
-										(change)="setpermaAdrr($event,studentForm.value)" />
-									<label class="custom-control-label" for="same">same as above</label>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-12">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text"> Permanent
-												Address</span></div>
-										<input class="form-control form-control-sm" id="pAddress" type="text"
-											  name="permanent_address" [(ngModel)]="studentdata.permanent_address" />
-									</div>
-								</div>
-							</div>
-							<div class="row mt-2">
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">City</span>
+								<div class="row mt-2">
+									<div class="col-md-12">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text"> Permanent
+													Address</span></div>
+											<input class="form-control form-control-sm" id="pAddress" type="text"
+												name="permanent_address" [(ngModel)]="studentdata.permanent_address" />
 										</div>
-										<input class="form-control form-control-sm as" id="pCity" type="text"
-											  name="permanent_city" [(ngModel)]="studentdata.permanent_city" />
 									</div>
 								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">State</span>
+								<div class="row mt-2">
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">City</span>
+											</div>
+											<input class="form-control form-control-sm as" id="pCity" type="text"
+												name="permanent_city" [(ngModel)]="studentdata.permanent_city" />
 										</div>
-										<select class="form-control" id="pState" [(ngModel)]='studentdata.permanent_state'  name="permanent_state">
-											<option value="">Select</option>
-										</select>
 									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group input-group-sm">
-										<div class="input-group-prepend"><span class="input-group-text">Postal
-												Code</span></div>
-										<input class="form-control form-control-sm" id="pCode" type="text"
-											  name="permanent_post" [(ngModel)]="studentdata.permanent_post" />
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">State</span>
+											</div>
+											<select class="form-control" id="pState"
+												[(ngModel)]='studentdata.permanent_state' name="permanent_state">
+												<option value="">Select</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group input-group-sm">
+											<div class="input-group-prepend"><span class="input-group-text">Postal
+													Code</span></div>
+											<input class="form-control form-control-sm" id="pCode" type="text"
+												name="permanent_post" [(ngModel)]="studentdata.permanent_post" />
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- license details start-->
-						<div class="border m-1 p-2">
-							<h5>License Details</h5>
-							<div class="row">
-								<p class="col-md-2 col-sm-2 requiredField" for="location"> License Type</p>
-								<div class="col-md-10">
-									<div class="row">
-										<!-- SPL Start-->
-										<div class="col-md-1 col-sm-1 col-xs-1">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="chk custom-control-input" id="SPL_license" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="spl_license" value="spl"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="SPL_license">SPL</label>
-											</div>
-										</div>
-										<!-- FRTOL Start-->
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="FRTOL1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_frtol" value="FRTOL"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="FRTOL1">FRTOL</label>
-											</div>
-										</div>
-										<div class="col-md-2 col-sm-1 col-xs-1">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="chk custom-control-input" id="FRTOLR_license"
-													type="checkbox" [(ngModel)]='studentdata.student_type'  name="FRTOLR_license" value="FRTOLR"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label"
-													for="FRTOLR_license">FRTOL(R)</label>
-											</div>
-										</div>
-										<!-- COPRTR Start-->
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="COPRTR1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_coprtr" value="COPRTR"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="COPRTR1">COPRTR</label>
-											</div>
-										</div>
-										<!-- COPRTR END-->
-										<!-- PPL Start-->
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="PPL1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_ppl" value="ppl"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="PPL1">PPL</label>
-											</div>
-										</div>
-										<!-- PPL END-->
-										<!-- CPL START-->
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="CPL1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_cpl" value="cpl"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="CPL1">CPL</label>
-											</div>
-										</div>
-										<!-- CPL END-->
-										<!-- CHPL START-->
-										<div class="col-md-2 col-sm-2 col-xs-2">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="CHPL1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_chpl" value="CHPL"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="CHPL1">CHPL</label>
-											</div>
-										</div>
-										<!-- CHPL START-->
-										<!-- ATPL START-->
-										<div class="col-md-1 col-sm-1 col-xs-1">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="ATPL1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_atpl" value="ATPL"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="ATPL1">ATPL</label>
-											</div>
-										</div>
-										<!-- ATPL START-->
-										<!-- IR START-->
-										<div class="col-md-1 col-sm-1 col-xs-1">
-											<div class="custom-control custom-checkbox custom-control-inline">
-												<input class="custom-control-input" id="IR1" type="checkbox"
-													[(ngModel)]='studentdata.student_type'  name="license_ir" value="ir"
-													(change)="showDivlan($event)" />
-												<label class="custom-control-label" for="IR1">IR</label>
-											</div>
-										</div>
-										<!-- IR START-->
-									</div>
-								</div>
-								<!-- Licence Type SHOW/HIDE START-->
-							</div>
-							<div class="row">
-								<div class="col-md-12 col-sm-12">
-									<div class="license_details">
-										<!-- SPL Type SHOW/HIDE START-->
-										<div id="spl" *ngIf=spl>
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<input class="form-control form-control-sm" id="splNo"
-														placeholder="SPL No." type="text" [(ngModel)]='studentdata.student_type'  name="spl_no" />
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" id="splIssuedate"
-															data-date-format="dd/mm/yyyy" data-provide="datepicker"
-															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="spl_issue_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" id="splExprdate"
-															data-date-format="dd/mm/yyyy" data-provide="datepicker"
-															placeholder="expiry date" [(ngModel)]='studentdata.student_type'  name="spl_exp_date" />
-													</div>
-												</div>
-												<!-- <div class="col-md-3 col-sm-6 file_plugin" id="splAttach"
-														[(ngModel)]='studentdata.student_type'  name="spl_attach"></div> -->
-											</div>
-											<hr />
-										</div>
-										<!-- FRTOL Type SHOW/HIDE START-->
-										<div id="FRTOL" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm"
-															placeholder="FRTOL  No." type="text"
-															[(ngModel)]='studentdata.student_type'  name="frtol_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="issue date"
-															[(ngModel)]='studentdata.student_type'  name="frtol_issue_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="frtol_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- FRTOL R Type SHOW/HIDE START-->
-										<div id="FRTOLR" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<input class="form-control form-control-sm" id="frtolrNo"
-														placeholder="FRTOL (R)  No." type="text"
-														[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_type1" />
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" id="frtolrIssuedate"
-															data-date-format="dd/mm/yyyy" placeholder="issue date"
-															[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_date1"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" id="frtolrExprdate"
-															data-date-format="dd/mm/yyyy" data-provide="datepicker"
-															placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="lt_FRTOLR_Expiry_date1" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin" id="frtolrAttach"></div>
-											</div>
-											<hr />
-										</div>
-										<!-- COPRTR R Type SHOW/HIDE START-->
-										<div id="COPRTR" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm"
-															placeholder="COPRTR No." type="text"
-															[(ngModel)]='studentdata.student_type'  name="coprtr_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="coprtr_issue_date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="coprtr_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- FRTOL R Type SHOW/HIDE END-->
-										<!-- PPL Type SHOW/HIDE START-->
-										<div id="ppl" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<input class="form-control form-control-sm" placeholder="PPL No."
-														type="text" [(ngModel)]='studentdata.student_type'  name="ppl_no" />
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="issue date"
-															[(ngModel)]='studentdata.student_type'  name="ppl_issue_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="ppl_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- PPL Type SHOW/HIDE END-->
-										<!-- CPL Type SHOW/HIDE START-->
-										<div id="cpl" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															placeholder="IND CPL No." [(ngModel)]='studentdata.student_type'  name="cpl_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="cpl_issue_date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expriy date"
-															[(ngModel)]='studentdata.student_type'  name="cpl_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div><br />
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															placeholder="FORG CPL No." [(ngModel)]='studentdata.student_type'  name="cpl_forg_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date"
-															[(ngModel)]='studentdata.student_type'  name="cpl_issue_forg_date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expriy date"
-															[(ngModel)]='studentdata.student_type'  name="cpl_exp_forg_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- CPL Type SHOW/HIDE END-->
-										<!-- CHPL Type SHOW/HIDE START-->
-										<div id="CHPL" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															placeholder="IND CHPL No." [(ngModel)]='studentdata.student_type'  name="chpl_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															[(ngModel)]='studentdata.student_type'  name="chpl_issue_date" placeholder="issue date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="chpl_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin"></div>
-											</div><br />
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															placeholder="FORG CHPL No."
-															[(ngModel)]='studentdata.student_type'  name="chpl_forg_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															[(ngModel)]='studentdata.student_type'  name="chpl_issue_forg_date"
-															placeholder="issue date" data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="chpl_exp_forg_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- CHPL Type SHOW/HIDE END-->
-										<!-- ATPL Type SHOW/HIDE START-->
-										<div id="ATPL" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															[(ngModel)]='studentdata.student_type'  name="atpl_no" placeholder="IND ATPL No." />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															[(ngModel)]='studentdata.student_type'  name="atpl_issue_date" placeholder="issue date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="atpl_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin"></div>
-											</div><br />
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" type="text"
-															[(ngModel)]='studentdata.student_type'  name="atpl_forg_no"
-															placeholder="FORG ATPL No." />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															[(ngModel)]='studentdata.student_type'  name="atpl_issue_forg_date"
-															placeholder="issue date" data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="atpl_exp_forg_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- ATPL Type SHOW/HIDE END-->
-										<!-- IR Type SHOW/HIDE START-->
-										<div id="ir" style="display:none">
-											<div class="row">
-												<div class="col-md-2 col-sm-6">
-													<div class="form-group">
-														<input class="form-control form-control-sm" placeholder="IR No."
-															type="text" [(ngModel)]='studentdata.student_type'  name="ir_no" />
-													</div>
-												</div>
-												<div class="col-md-4 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Issue date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															placeholder="issue date" [(ngModel)]='studentdata.student_type'  name="ir_issue_date"
-															data-provide="datepicker" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-12">
-													<div class="input-group input-group-sm">
-														<div class="input-group-append">
-															<div class="input-group-text">Expiry date </div>
-														</div>
-														<input class="form-control" data-date-format="dd/mm/yyyy"
-															data-provide="datepicker" placeholder="expiry date"
-															[(ngModel)]='studentdata.student_type'  name="ir_exp_date" />
-													</div>
-												</div>
-												<div class="col-md-3 col-sm-6 file_plugin">
-												</div>
-											</div>
-											<hr />
-										</div>
-										<!-- IR Type SHOW/HIDE END-->
-										<!-- license details end-->
-									</div>
-								</div>
-							</div>
-							<!-- Rating input start-->
-							<!-- certificates input start-->
-							<div class="row">
-								<div class="col-md-12 col-sm-12">
-									<div class="required" id="license">
+							<!-- license details start-->
+							<div class="border m-1 p-2">
+								<h5>License Details</h5>
+								<div class="row">
+									<p class="col-md-2 col-sm-2 requiredField" for="location"> License Type</p>
+									<div class="col-md-10">
 										<div class="row">
-											<label class="col-md-2 requiredField" for="location">
-												Certificates</label>
-											<div class="col-md-10">
+											<!-- SPL Start-->
+											<div class="col-md-1 col-sm-1 col-xs-1">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="chk custom-control-input" id="SPL_license"
+														type="checkbox" [(ngModel)]='studentdata.student_type'
+														name="spl_license" value="spl" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="SPL_license">SPL</label>
+												</div>
+											</div>
+											<!-- FRTOL Start-->
+											<div class="col-md-2 col-sm-2 col-xs-2">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="FRTOL1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_frtol"
+														value="FRTOL" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="FRTOL1">FRTOL</label>
+												</div>
+											</div>
+											<div class="col-md-2 col-sm-1 col-xs-1">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="chk custom-control-input" id="FRTOLR_license"
+														type="checkbox" [(ngModel)]='studentdata.student_type'
+														name="FRTOLR_license" value="FRTOLR"
+														(change)="showDivlan($event)" />
+													<label class="custom-control-label"
+														for="FRTOLR_license">FRTOL(R)</label>
+												</div>
+											</div>
+											<!-- COPRTR Start-->
+											<div class="col-md-2 col-sm-2 col-xs-2">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="COPRTR1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_coprtr"
+														value="COPRTR" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="COPRTR1">COPRTR</label>
+												</div>
+											</div>
+											<!-- COPRTR END-->
+											<!-- PPL Start-->
+											<div class="col-md-2 col-sm-2 col-xs-2">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="PPL1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_ppl"
+														value="ppl" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="PPL1">PPL</label>
+												</div>
+											</div>
+											<!-- PPL END-->
+											<!-- CPL START-->
+											<div class="col-md-2 col-sm-2 col-xs-2">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="CPL1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_cpl"
+														value="cpl" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="CPL1">CPL</label>
+												</div>
+											</div>
+											<!-- CPL END-->
+											<!-- CHPL START-->
+											<div class="col-md-2 col-sm-2 col-xs-2">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="CHPL1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_chpl"
+														value="CHPL" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="CHPL1">CHPL</label>
+												</div>
+											</div>
+											<!-- CHPL START-->
+											<!-- ATPL START-->
+											<div class="col-md-1 col-sm-1 col-xs-1">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="ATPL1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_atpl"
+														value="ATPL" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="ATPL1">ATPL</label>
+												</div>
+											</div>
+											<!-- ATPL START-->
+											<!-- IR START-->
+											<div class="col-md-1 col-sm-1 col-xs-1">
+												<div class="custom-control custom-checkbox custom-control-inline">
+													<input class="custom-control-input" id="IR1" type="checkbox"
+														[(ngModel)]='studentdata.student_type' name="license_ir"
+														value="ir" (change)="showDivlan($event)" />
+													<label class="custom-control-label" for="IR1">IR</label>
+												</div>
+											</div>
+											<!-- IR START-->
+										</div>
+									</div>
+									<!-- Licence Type SHOW/HIDE START-->
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-sm-12">
+										<div class="license_details">
+											<!-- SPL Type SHOW/HIDE START-->
+											<div id="spl" *ngIf=spl>
 												<div class="row">
-													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
-														<div
-															class="custom-control custom-checkbox custom-control-inline">
-															<input class="custom-control-input" id="myFunctionmedical"
-																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_medical"
-																value="medical"
-																(change)="showDivlan($event)" />
-															<label class="custom-control-label"
-																for="myFunctionmedical">Medical File</label>
+													<div class="col-md-2 col-sm-6">
+														<input class="form-control form-control-sm" id="splNo"
+															placeholder="SPL No." type="text"
+															[(ngModel)]='studentdata.student_type' name="spl_no" />
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" id="splIssuedate"
+																data-date-format="dd/mm/yyyy" data-provide="datepicker"
+																placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="spl_issue_date" />
 														</div>
 													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
-														<div
-															class="custom-control custom-checkbox custom-control-inline">
-															<input class="custom-control-input" id="myFunctionrefresher"
-																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_refresher"
-																value="refresher"
-																(change)="showDivlan($event)" />
-															<label class="custom-control-label"
-																for="myFunctionrefresher">Refresher Course</label>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" id="splExprdate"
+																data-date-format="dd/mm/yyyy" data-provide="datepicker"
+																placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="spl_exp_date" />
 														</div>
 													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
-														<div
-															class="custom-control custom-checkbox custom-control-inline">
-															<input class="custom-control-input" id="myFunctionavsec"
-																type="checkbox" [(ngModel)]='studentdata.student_type'  name="certificates_avsec"
-																value="avsec" (change)="showDivlan($event)" />
-															<label class="custom-control-label" for="myFunctionavsec">
-																AVSEC Validity</label>
+													<!-- <div class="col-md-3 col-sm-6 file_plugin" id="splAttach"
+														[(ngModel)]='studentdata.student_type'  name="spl_attach"></div> -->
+												</div>
+												<hr />
+											</div>
+											<!-- FRTOL Type SHOW/HIDE START-->
+											<div id="FRTOL" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm"
+																placeholder="FRTOL  No." type="text"
+																[(ngModel)]='studentdata.student_type'
+																name="frtol_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="frtol_issue_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="frtol_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- FRTOL R Type SHOW/HIDE START-->
+											<div id="FRTOLR" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<input class="form-control form-control-sm" id="frtolrNo"
+															placeholder="FRTOL (R)  No." type="text"
+															[(ngModel)]='studentdata.student_type'
+															name="lt_FRTOLR_type1" />
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" id="frtolrIssuedate"
+																data-date-format="dd/mm/yyyy" placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="lt_FRTOLR_date1" data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" id="frtolrExprdate"
+																data-date-format="dd/mm/yyyy" data-provide="datepicker"
+																placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="lt_FRTOLR_Expiry_date1" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin" id="frtolrAttach"></div>
+												</div>
+												<hr />
+											</div>
+											<!-- COPRTR R Type SHOW/HIDE START-->
+											<div id="COPRTR" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm"
+																placeholder="COPRTR No." type="text"
+																[(ngModel)]='studentdata.student_type'
+																name="coprtr_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="coprtr_issue_date" data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="coprtr_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- FRTOL R Type SHOW/HIDE END-->
+											<!-- PPL Type SHOW/HIDE START-->
+											<div id="ppl" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<input class="form-control form-control-sm"
+															placeholder="PPL No." type="text"
+															[(ngModel)]='studentdata.student_type' name="ppl_no" />
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="ppl_issue_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="ppl_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- PPL Type SHOW/HIDE END-->
+											<!-- CPL Type SHOW/HIDE START-->
+											<div id="cpl" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																placeholder="IND CPL No."
+																[(ngModel)]='studentdata.student_type' name="cpl_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="cpl_issue_date" data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expriy date"
+																[(ngModel)]='studentdata.student_type'
+																name="cpl_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div><br />
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																placeholder="FORG CPL No."
+																[(ngModel)]='studentdata.student_type'
+																name="cpl_forg_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="cpl_issue_forg_date" data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expriy date"
+																[(ngModel)]='studentdata.student_type'
+																name="cpl_exp_forg_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- CPL Type SHOW/HIDE END-->
+											<!-- CHPL Type SHOW/HIDE START-->
+											<div id="CHPL" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																placeholder="IND CHPL No."
+																[(ngModel)]='studentdata.student_type' name="chpl_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																[(ngModel)]='studentdata.student_type'
+																name="chpl_issue_date" placeholder="issue date"
+																data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="chpl_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin"></div>
+												</div><br />
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																placeholder="FORG CHPL No."
+																[(ngModel)]='studentdata.student_type'
+																name="chpl_forg_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																[(ngModel)]='studentdata.student_type'
+																name="chpl_issue_forg_date" placeholder="issue date"
+																data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="chpl_exp_forg_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- CHPL Type SHOW/HIDE END-->
+											<!-- ATPL Type SHOW/HIDE START-->
+											<div id="ATPL" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																[(ngModel)]='studentdata.student_type' name="atpl_no"
+																placeholder="IND ATPL No." />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																[(ngModel)]='studentdata.student_type'
+																name="atpl_issue_date" placeholder="issue date"
+																data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="atpl_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin"></div>
+												</div><br />
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm" type="text"
+																[(ngModel)]='studentdata.student_type'
+																name="atpl_forg_no" placeholder="FORG ATPL No." />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																[(ngModel)]='studentdata.student_type'
+																name="atpl_issue_forg_date" placeholder="issue date"
+																data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="atpl_exp_forg_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- ATPL Type SHOW/HIDE END-->
+											<!-- IR Type SHOW/HIDE START-->
+											<div id="ir" style="display:none">
+												<div class="row">
+													<div class="col-md-2 col-sm-6">
+														<div class="form-group">
+															<input class="form-control form-control-sm"
+																placeholder="IR No." type="text"
+																[(ngModel)]='studentdata.student_type' name="ir_no" />
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Issue date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																placeholder="issue date"
+																[(ngModel)]='studentdata.student_type'
+																name="ir_issue_date" data-provide="datepicker" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-12">
+														<div class="input-group input-group-sm">
+															<div class="input-group-append">
+																<div class="input-group-text">Expiry date </div>
+															</div>
+															<input class="form-control" data-date-format="dd/mm/yyyy"
+																data-provide="datepicker" placeholder="expiry date"
+																[(ngModel)]='studentdata.student_type'
+																name="ir_exp_date" />
+														</div>
+													</div>
+													<div class="col-md-3 col-sm-6 file_plugin">
+													</div>
+												</div>
+												<hr />
+											</div>
+											<!-- IR Type SHOW/HIDE END-->
+											<!-- license details end-->
+										</div>
+									</div>
+								</div>
+								<!-- Rating input start-->
+								<!-- certificates input start-->
+								<div class="row">
+									<div class="col-md-12 col-sm-12">
+										<div class="required" id="license">
+											<div class="row">
+												<label class="col-md-2 requiredField" for="location">
+													Certificates</label>
+												<div class="col-md-10">
+													<div class="row">
+														<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+															<div
+																class="custom-control custom-checkbox custom-control-inline">
+																<input class="custom-control-input"
+																	id="myFunctionmedical" type="checkbox"
+																	[(ngModel)]='studentdata.student_type'
+																	name="certificates_medical" value="medical"
+																	(change)="showDivlan($event)" />
+																<label class="custom-control-label"
+																	for="myFunctionmedical">Medical File</label>
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+															<div
+																class="custom-control custom-checkbox custom-control-inline">
+																<input class="custom-control-input"
+																	id="myFunctionrefresher" type="checkbox"
+																	[(ngModel)]='studentdata.student_type'
+																	name="certificates_refresher" value="refresher"
+																	(change)="showDivlan($event)" />
+																<label class="custom-control-label"
+																	for="myFunctionrefresher">Refresher Course</label>
+															</div>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-4 licenseLevel">
+															<div
+																class="custom-control custom-checkbox custom-control-inline">
+																<input class="custom-control-input" id="myFunctionavsec"
+																	type="checkbox"
+																	[(ngModel)]='studentdata.student_type'
+																	name="certificates_avsec" value="avsec"
+																	(change)="showDivlan($event)" />
+																<label class="custom-control-label"
+																	for="myFunctionavsec">
+																	AVSEC Validity</label>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12 col-sm-12">
-												<div class="certificates_details">
-													<!-- Medical SHOW/HIDE START-->
-													<div id="medical" style="display: none">
-														<div class="row">
-															<div class="col-md-3 col-sm-12">
-																<div
-																	class="custom-control custom-radio custom-control-inline">
-																	<input class="custom-control-input" id="med1"
-																		type="radio" [(ngModel)]='studentdata.student_type'  name="class_type"
-																		value="class1" />
-																	<label class="custom-control-label"
-																		for="med1">Class1 </label>
+											<div class="row">
+												<div class="col-md-12 col-sm-12">
+													<div class="certificates_details">
+														<!-- Medical SHOW/HIDE START-->
+														<div id="medical" style="display: none">
+															<div class="row">
+																<div class="col-md-3 col-sm-12">
+																	<div
+																		class="custom-control custom-radio custom-control-inline">
+																		<input class="custom-control-input" id="med1"
+																			type="radio"
+																			[(ngModel)]='studentdata.student_type'
+																			name="class_type" value="class1" />
+																		<label class="custom-control-label"
+																			for="med1">Class1 </label>
+																	</div>
+																	<div
+																		class="custom-control custom-radio custom-control-inline">
+																		<input class="custom-control-input" id="med2"
+																			type="radio"
+																			[(ngModel)]='studentdata.student_type'
+																			name="class_type" value="class2" />
+																		<label class="custom-control-label"
+																			for="med2">Class2</label>
+																	</div>
 																</div>
-																<div
-																	class="custom-control custom-radio custom-control-inline">
-																	<input class="custom-control-input" id="med2"
-																		type="radio" [(ngModel)]='studentdata.student_type'  name="class_type"
-																		value="class2" />
-																	<label class="custom-control-label"
-																		for="med2">Class2</label>
+															</div>
+															<div class="row">
+																<div class="col-md-3 col-sm-12">
+																	<input class="form-control form-control-sm"
+																		type="text" placeholder="Assessment No."
+																		[(ngModel)]='studentdata.student_type'
+																		name="medical_no" />
 																</div>
+																<div class="col-md-3 col-sm-12">
+																	<div class="input-group input-group-sm">
+																		<div class="input-group-append">
+																			<div class="input-group-text">Issue date
+																			</div>
+																		</div>
+																		<input class="form-control"
+																			data-date-format="dd/mm/yyyy"
+																			placeholder="issue date"
+																			[(ngModel)]='studentdata.student_type'
+																			name="medical_issue_date"
+																			data-provide="datepicker" />
+																	</div>
+																</div>
+																<div class="col-md-3 col-sm-12">
+																	<div class="input-group input-group-sm">
+																		<div class="input-group-append">
+																			<div class="input-group-text">Expiry date
+																			</div>
+																		</div>
+																		<input class="form-control"
+																			data-date-format="dd/mm/yyyy"
+																			data-provide="datepicker"
+																			placeholder="expiry date"
+																			[(ngModel)]='studentdata.student_type'
+																			name="medical_exp_date" />
+																	</div>
+																</div>
+																<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-3 col-sm-12">
-																<input class="form-control form-control-sm" type="text"
-																	placeholder="Assessment No."
-																	[(ngModel)]='studentdata.student_type'  name="medical_no" />
-															</div>
-															<div class="col-md-3 col-sm-12">
-																<div class="input-group input-group-sm">
-																	<div class="input-group-append">
-																		<div class="input-group-text">Issue date
-																		</div>
-																	</div>
-																	<input class="form-control"
-																		data-date-format="dd/mm/yyyy"
-																		placeholder="issue date"
-																		[(ngModel)]='studentdata.student_type'  name="medical_issue_date"
-																		data-provide="datepicker" />
-																</div>
-															</div>
-															<div class="col-md-3 col-sm-12">
-																<div class="input-group input-group-sm">
-																	<div class="input-group-append">
-																		<div class="input-group-text">Expiry date
-																		</div>
-																	</div>
-																	<input class="form-control"
+														<!-- Medical SHOW/HIDE END-->
+														<!-- REFRESHER SHOW/HIDE START-->
+														<div id="refresher" style="display: none">
+															<div class="row">
+																<div class="col-md-3 col-sm-12 mb-2">
+																	<input class="form-control form-control-sm"
 																		data-date-format="dd/mm/yyyy"
 																		data-provide="datepicker"
-																		placeholder="expiry date"
-																		[(ngModel)]='studentdata.student_type'  name="medical_exp_date" />
+																		placeholder="Latest Refresher Course Date(DD/MM/YYYY)"
+																		[(ngModel)]='studentdata.student_type'
+																		name="refresher_date" style="width:100%" />
 																</div>
+																<div class="col-md-3 col-sm-12 mb-2">
+																	<input class="form-control form-control-sm as"
+																		type="text" placeholder="Enter Location Details"
+																		[(ngModel)]='studentdata.student_type'
+																		name="refresher_location" />
+																</div>
+																<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 															</div>
-															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 														</div>
-													</div>
-													<!-- Medical SHOW/HIDE END-->
-													<!-- REFRESHER SHOW/HIDE START-->
-													<div id="refresher" style="display: none">
-														<div class="row">
-															<div class="col-md-3 col-sm-12 mb-2">
-																<input class="form-control form-control-sm"
-																	data-date-format="dd/mm/yyyy"
-																	data-provide="datepicker"
-																	placeholder="Latest Refresher Course Date(DD/MM/YYYY)"
-																	[(ngModel)]='studentdata.student_type'  name="refresher_date"
-																	style="width:100%" />
+														<!-- REFREHER SHOW/HIDE END-->
+														<!-- AVSEC SHOW/HIDE END-->
+														<div id="avsec" style="display: none">
+															<div class="row">
+																<div class="col-md-3 col-sm-12 mb-2">
+																	<input class="form-control form-control-sm"
+																		data-date-format="dd/mm/yyyy"
+																		data-provide="datepicker"
+																		placeholder="Latest AVSEC Date(DD/MM/YYYY)"
+																		[(ngModel)]='studentdata.student_type'
+																		name="avsec_date" style="width:100%" />
+																</div>
+																<div class="col-md-3 col-sm-12 mb-2">
+																	<input class="form-control form-control-sm as"
+																		type="text" placeholder="Enter Location Details"
+																		[(ngModel)]='studentdata.student_type'
+																		name="avsec_location" />
+																</div>
+																<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 															</div>
-															<div class="col-md-3 col-sm-12 mb-2">
-																<input class="form-control form-control-sm as"
-																	type="text" placeholder="Enter Location Details"
-																	[(ngModel)]='studentdata.student_type'  name="refresher_location" />
-															</div>
-															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
 														</div>
+														<!-- AVSEC SHOW/HIDE END-->
+														<!-- certificates input end-->
 													</div>
-													<!-- REFREHER SHOW/HIDE END-->
-													<!-- AVSEC SHOW/HIDE END-->
-													<div id="avsec"  style="display: none">
-														<div class="row">
-															<div class="col-md-3 col-sm-12 mb-2">
-																<input class="form-control form-control-sm"
-																	data-date-format="dd/mm/yyyy"
-																	data-provide="datepicker"
-																	placeholder="Latest AVSEC Date(DD/MM/YYYY)"
-																	[(ngModel)]='studentdata.student_type'  name="avsec_date" style="width:100%" />
-															</div>
-															<div class="col-md-3 col-sm-12 mb-2">
-																<input class="form-control form-control-sm as"
-																	type="text" placeholder="Enter Location Details"
-																	[(ngModel)]='studentdata.student_type'  name="avsec_location" />
-															</div>
-															<div class="col-md-3 col-sm-12 file_plugin mb-2"></div>
-														</div>
-													</div>
-													<!-- AVSEC SHOW/HIDE END-->
-													<!-- certificates input end-->
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- Experience input Start-->
-						<div class="border m-1 p-2">
-							<h5>Experience</h5>
-							<!-- Single Engine Aircrafts Start-->
-							<div class="row">
-								<div class="col-md-12 mt-3">
-									<p>Single Engine Aircrafts Flown</p>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown1" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown2" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown3" />
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown4" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown5" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="singleEngineFlown6" />
-									</div>
-								</div>
-							</div>
-							<!-- Single Engine Aircrafts End-->
-							<!-- Multiple Engine Aircrafts Start-->
-							<div class="row">
-								<div class="col-md-12">
-									<p>Multi Engine Aircrafts Flown</p>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown1" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown2" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown3" />
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown4" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown5" />
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<input class="form-control form-control-sm" type="text"
-											[(ngModel)]='studentdata.student_type'  name="multiEngineFlown6" />
-									</div>
-								</div>
-							</div>
-							<!-- Multiple Engine Aircrafts End-->
-							<!-- Hours Flown Start-->
-							<!-- Single Start-->
-							<div class="row p-2">
-								<div class="col-md-3">
-									<h5>Hours Flown</h5>
-									<p>Single </p>
-								</div>
-								<div class="col-md-4 border p-2">
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">Day
-														Dual
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_day_dual_hr" maxlength="4" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">HH</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_day_dual_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">PIC
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_day_PIC_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_day_PIC_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 border p-2">
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">Night
-														Dual </span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_night_dual_hr" maxlength="4" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">HH</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_night_dual_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">PIC
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_night_PIC_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="single_night_PIC_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Single End-->
-							<!-- Multiple Start-->
-							<div class="row p-2">
-								<div class="col-md-3">
-									<p>Multi</p>
-								</div>
-								<div class="col-md-4 border p-2">
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">Day
-														Dual
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_day_dual_hr" maxlength="4" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">HH</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_day_dual_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">PIC
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_day_PIC_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_day_PIC_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 border p-2">
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">Night
-														Dual </span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_night_dual_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_night_dual_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-									<div class="row mt-2">
-										<div class="col-md-12">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">PIC
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_night_PIC_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="multiple_night_PIC_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3 mt-3">
-									<p>Instrument</p>
-								</div>
-								<div class="col-md-9">
-									<div class="row mt-3">
-										<div class="col-md-6">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">Actual
-													</span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="instrument_actual_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="instrument_actual_min" maxlength="2" />
-												<div class="input-group-prepend"><span class="input-group-text">MM
-													</span></div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="input-group input-group-sm">
-												<div class="input-group-prepend"><span class="input-group-text">
-														Stimulator </span></div>
-												<input class="form-control form-control" id="th" type="text"
-													[(ngModel)]='studentdata.student_type'  name="instrument_stimulate_hr" maxlength="4" />
-												<div class="input-group-prepend"><span class="input-group-text">HH
-													</span></div>
-												<input class="form-control form-control" id="tm" type="text"
-													[(ngModel)]='studentdata.student_type'  name="instrument_stimulate_min" maxlength="2" />
-												<div class="input-group-prepend"><span
-														class="input-group-text">MM</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-12">
-									<h5>File Attachments(Last page of Log Book) </h5>
-								</div>
-								<div class="col-md-6 col-sm-6 col-12 file_plugin">
-								</div>
-							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<h5>Language proficiency</h5>
-							<div class="form-group mt-3" id="language">
+							<!-- Experience input Start-->
+							<div class="border m-1 p-2">
+								<h5>Experience</h5>
+								<!-- Single Engine Aircrafts Start-->
 								<div class="row">
-									<p class="col-md-4 col-sm-3">English Language : </p>
-									<div class="col-md-8 col-sm-9">
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r1" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 1" />
-											<label class="custom-control-label" for="r1"
-												style="font-size: 14px;margin-top: 3px;">Level 1</label>
+									<div class="col-md-12 mt-3">
+										<p>Single Engine Aircrafts Flown</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown1" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r2" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 2" />
-											<label class="custom-control-label" for="r2"
-												style="font-size: 14px;margin-top: 3px;">Level 2</label>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown2" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r3" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 3" />
-											<label class="custom-control-label" for="r3"
-												style="font-size: 14px;margin-top: 3px;">Level 3</label>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown3" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r4" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 4" />
-											<label class="custom-control-label" for="r4"
-												style="font-size: 14px;margin-top: 3px;">Level 4</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown4" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r5" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 5" />
-											<label class="custom-control-label" for="r5"
-												style="font-size: 14px;margin-top: 3px;">Level 5</label>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown5" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r6" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="showDiv($event)" value="level 6" />
-											<label class="custom-control-label" for="r6"
-												style="font-size: 14px;margin-top: 3px;">Level 6</label>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="singleEngineFlown6" />
 										</div>
-										<div class="custom-control custom-radio custom-control-inline ml-3">
-											<input class="custom-control-input" id="r7" type="radio"
-												[(ngModel)]='studentdata.student_type'  name="language" (change)="hideDiv($event)" value="none" />
-											<label class="custom-control-label" for="r7"
-												style="font-size: 14px;margin-top: 3px;">None</label>
+									</div>
+								</div>
+								<!-- Single Engine Aircrafts End-->
+								<!-- Multiple Engine Aircrafts Start-->
+								<div class="row">
+									<div class="col-md-12">
+										<p>Multi Engine Aircrafts Flown</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown1" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown2" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown3" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown4" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown5" />
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<input class="form-control form-control-sm" type="text"
+												[(ngModel)]='studentdata.student_type' name="multiEngineFlown6" />
+										</div>
+									</div>
+								</div>
+								<!-- Multiple Engine Aircrafts End-->
+								<!-- Hours Flown Start-->
+								<!-- Single Start-->
+								<div class="row p-2">
+									<div class="col-md-3">
+										<h5>Hours Flown</h5>
+										<p>Single </p>
+									</div>
+									<div class="col-md-4 border p-2">
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">Day
+															Dual
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type' name="single_day_dual_hr"
+														maxlength="4" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">HH</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="single_day_dual_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">PIC
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type' name="single_day_PIC_hr"
+														maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type' name="single_day_PIC_min"
+														maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 border p-2">
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span
+															class="input-group-text">Night
+															Dual </span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="single_night_dual_hr" maxlength="4" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">HH</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="single_night_dual_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">PIC
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="single_night_PIC_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="single_night_PIC_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Single End-->
+								<!-- Multiple Start-->
+								<div class="row p-2">
+									<div class="col-md-3">
+										<p>Multi</p>
+									</div>
+									<div class="col-md-4 border p-2">
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">Day
+															Dual
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_day_dual_hr" maxlength="4" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">HH</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_day_dual_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">PIC
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_day_PIC_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_day_PIC_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 border p-2">
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span
+															class="input-group-text">Night
+															Dual </span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_night_dual_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_night_dual_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">PIC
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_night_PIC_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="multiple_night_PIC_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3 mt-3">
+										<p>Instrument</p>
+									</div>
+									<div class="col-md-9">
+										<div class="row mt-3">
+											<div class="col-md-6">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span
+															class="input-group-text">Actual
+														</span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="instrument_actual_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="instrument_actual_min" maxlength="2" />
+													<div class="input-group-prepend"><span class="input-group-text">MM
+														</span></div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="input-group input-group-sm">
+													<div class="input-group-prepend"><span class="input-group-text">
+															Stimulator </span></div>
+													<input class="form-control form-control" id="th" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="instrument_stimulate_hr" maxlength="4" />
+													<div class="input-group-prepend"><span class="input-group-text">HH
+														</span></div>
+													<input class="form-control form-control" id="tm" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="instrument_stimulate_min" maxlength="2" />
+													<div class="input-group-prepend"><span
+															class="input-group-text">MM</span></div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div id="language_details" *ngIf=language>
-								<div class="form-group language" id="language">
+							<div class="border m-1 p-2">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-12">
+										<h5>File Attachments(Last page of Log Book) </h5>
+									</div>
+									<div class="col-md-6 col-sm-6 col-12 file_plugin">
+									</div>
+								</div>
+							</div>
+							<div class="border m-1 p-2">
+								<h5>Language proficiency</h5>
+								<div class="form-group mt-3" id="language">
 									<div class="row">
-										<div class="col-md-5 col-sm-6 col-6">
-											<div class="input-group input-group-sm">
-												<div class="input-group-append">
-													<div class="input-group-text">S.no</div>
-												</div>
-												<input class="form-control" id="level" type="text"
-													[(ngModel)]='studentdata.student_type'  name="english_level_type1" />
+										<p class="col-md-4 col-sm-3">English Language : </p>
+										<div class="col-md-8 col-sm-9">
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r1" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 1" />
+												<label class="custom-control-label" for="r1"
+													style="font-size: 14px;margin-top: 3px;">Level 1</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r2" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 2" />
+												<label class="custom-control-label" for="r2"
+													style="font-size: 14px;margin-top: 3px;">Level 2</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r3" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 3" />
+												<label class="custom-control-label" for="r3"
+													style="font-size: 14px;margin-top: 3px;">Level 3</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r4" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 4" />
+												<label class="custom-control-label" for="r4"
+													style="font-size: 14px;margin-top: 3px;">Level 4</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r5" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 5" />
+												<label class="custom-control-label" for="r5"
+													style="font-size: 14px;margin-top: 3px;">Level 5</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r6" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="showDiv($event)" value="level 6" />
+												<label class="custom-control-label" for="r6"
+													style="font-size: 14px;margin-top: 3px;">Level 6</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-3">
+												<input class="custom-control-input" id="r7" type="radio"
+													[(ngModel)]='studentdata.student_type' name="language"
+													(change)="hideDiv($event)" value="none" />
+												<label class="custom-control-label" for="r7"
+													style="font-size: 14px;margin-top: 3px;">None</label>
 											</div>
 										</div>
-										<div class="col-md-5 col-sm-6 col-6">
-											<div class="input-group input-group-sm">
-												<div class="input-group-append">
-													<div class="input-group-text">Validity </div>
+									</div>
+								</div>
+								<div id="language_details" *ngIf=language>
+									<div class="form-group language" id="language">
+										<div class="row">
+											<div class="col-md-5 col-sm-6 col-6">
+												<div class="input-group input-group-sm">
+													<div class="input-group-append">
+														<div class="input-group-text">S.no</div>
+													</div>
+													<input class="form-control" id="level" type="text"
+														[(ngModel)]='studentdata.student_type'
+														name="english_level_type1" />
 												</div>
-												<input class="form-control datepicker" id="level1"
-													placeholder="DD/MM/YYYY" data-date-format="dd/mm/yyyy"
-													[(ngModel)]='studentdata.student_type'  name="languageDate" data-provide="datepicker" />
+											</div>
+											<div class="col-md-5 col-sm-6 col-6">
+												<div class="input-group input-group-sm">
+													<div class="input-group-append">
+														<div class="input-group-text">Validity </div>
+													</div>
+													<input class="form-control datepicker" id="level1"
+														placeholder="DD/MM/YYYY" data-date-format="dd/mm/yyyy"
+														[(ngModel)]='studentdata.student_type' name="languageDate"
+														data-provide="datepicker" />
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="border m-1 p-2">
-							<div class="row">
-								<input type="hidden" id="hiSign" />
-								<div class="col-md-10 col-sm-6 col-12">
-									<p>Student Signature</p>
-									<div class="p4" (click)="getpusersign('instructor')"
-										style="width:100px;height:100px;border:solid 1px #ccc;background-color:white;"
-										id="pId" *ngIf=pid>
-									</div>
-									<div id="instructor_sign" *ngIf=signd>
-										<img src="{{'data:image/jpg;base64,' + studentdata.user_signature}}" name="user_signature"
-										[(ngModel)]="studentdata.user_signature" 
-											style="width:100px;height:100px;border:1px solid #000">
-									</div>
+							<div class="border m-1 p-2">
+								<div class="row">
+									<input type="hidden" id="hiSign" />
+									<div class="col-md-10 col-sm-6 col-12">
+										<p>Student Signature</p>
+										<div class="p4" (click)="getpusersign('instructor')"
+											style="width:100px;height:100px;border:solid 1px #ccc;background-color:white;"
+											id="pId" *ngIf=pid>
+										</div>
+										<div id="instructor_sign" *ngIf=signd>
+											<img src="{{'data:image/jpg;base64,' + studentdata.user_signature}}"
+												name="user_signature" [(ngModel)]="studentdata.user_signature"
+												style="width:100px;height:100px;border:1px solid #000">
+										</div>
 
+									</div>
+								</div>
+							</div>
+							<div class="row m-1 p-2">
+								<div class="col-md-12 text-center">
+									<div class="custom-control custom-checkbox">
+										<input class="custom-control-input" id="terms" [(ngModel)]='studentdata.terms'
+											name="terms" type="checkbox" required="required" value="yes" />
+										<label class="custom-control-label" for="terms"> These details are provided by
+											me
+											and true to the best of my knowledge</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 text-center">
+									<div class="btn-group">
+										<input class="btn btn-primary mr-3" type="submit"
+											(click)="onSubmit(studentForm.value)" value="Submit" />
+										<input class="btn btn-primary" type="reset" />
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row m-1 p-2">
-							<div class="col-md-12 text-center">
-								<div class="custom-control custom-checkbox">
-									<input class="custom-control-input" id="terms" [(ngModel)]='studentdata.terms'  name="terms"
-										type="checkbox" required="required" value="yes" />
-									<label class="custom-control-label" for="terms"> These details are provided by
-										me
-										and true to the best of my knowledge</label>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 col-sm-12 text-center">
-								<div class="btn-group">
-									<input class="btn btn-primary mr-3" type="submit" (click)="onSubmit(studentForm.value)" value="Submit" />
-									<input class="btn btn-primary" type="reset" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
+					</form>
 				</div>
 			</div>
 		</div>
