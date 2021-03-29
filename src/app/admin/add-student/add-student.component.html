@@ -188,7 +188,7 @@
 											<div class="input-group-prepend"><span class="input-group-text">Email
 													Address</span></div>
 											<input class="form-control form-control-sm" id="semail" type="text"
-												[(ngModel)]='studentdata.student_type' name="email"
+												[(ngModel)]='studentdata.email' name="email"
 												pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" />
 										</div>
 									</div>
@@ -198,7 +198,7 @@
 												<div class="input-group-text">Password</div>
 											</div>
 											<input class="form-control form-control-sm" id="password" type="password"
-												[(ngModel)]='studentdata.student_type' name="password" maxlength="10"
+												[(ngModel)]='studentdata.password' name="password" maxlength="10"
 												minlength="6" />
 										</div>
 									</div>
@@ -213,7 +213,7 @@
 												<div class="input-group-text">First Name</div>
 											</div>
 											<input class="form-control form-control-sm up" id="pFname" type="text"
-												[(ngModel)]='guardianFName' name="guardianFName" />
+												[(ngModel)]='studentdata.guardianFName' name="guardianFName" />
 										</div>
 									</div>
 									<div class="col-md-4 col-sm-4">
@@ -359,7 +359,7 @@
 											<div class="col-md-1 col-sm-1 col-xs-1">
 												<div class="custom-control custom-checkbox custom-control-inline">
 													<input class="chk custom-control-input" id="SPL_license"
-														type="checkbox" [(ngModel)]='studentdata.student_type'
+														type="checkbox" [(ngModel)]='studentdata.spl_license'
 														name="spl_license" value="spl" (change)="showDivlan($event)" />
 													<label class="custom-control-label" for="SPL_license">SPL</label>
 												</div>
@@ -368,7 +368,7 @@
 											<div class="col-md-2 col-sm-2 col-xs-2">
 												<div class="custom-control custom-checkbox custom-control-inline">
 													<input class="custom-control-input" id="FRTOL1" type="checkbox"
-														[(ngModel)]='studentdata.student_type' name="license_frtol"
+														[(ngModel)]='studentdata.license_frtol' name="license_frtol"
 														value="FRTOL" (change)="showDivlan($event)" />
 													<label class="custom-control-label" for="FRTOL1">FRTOL</label>
 												</div>
@@ -376,7 +376,7 @@
 											<div class="col-md-2 col-sm-1 col-xs-1">
 												<div class="custom-control custom-checkbox custom-control-inline">
 													<input class="chk custom-control-input" id="FRTOLR_license"
-														type="checkbox" [(ngModel)]='studentdata.student_type'
+														type="checkbox" [(ngModel)]='studentdata.FRTOLR_license'
 														name="FRTOLR_license" value="FRTOLR"
 														(change)="showDivlan($event)" />
 													<label class="custom-control-label"
@@ -387,7 +387,7 @@
 											<div class="col-md-2 col-sm-2 col-xs-2">
 												<div class="custom-control custom-checkbox custom-control-inline">
 													<input class="custom-control-input" id="COPRTR1" type="checkbox"
-														[(ngModel)]='studentdata.student_type' name="license_coprtr"
+														[(ngModel)]='studentdata.license_coprtr' name="license_coprtr"
 														value="COPRTR" (change)="showDivlan($event)" />
 													<label class="custom-control-label" for="COPRTR1">COPRTR</label>
 												</div>
@@ -397,7 +397,7 @@
 											<div class="col-md-2 col-sm-2 col-xs-2">
 												<div class="custom-control custom-checkbox custom-control-inline">
 													<input class="custom-control-input" id="PPL1" type="checkbox"
-														[(ngModel)]='studentdata.student_type' name="license_ppl"
+														[(ngModel)]='studentdata.license_ppl' name="license_ppl"
 														value="ppl" (change)="showDivlan($event)" />
 													<label class="custom-control-label" for="PPL1">PPL</label>
 												</div>
