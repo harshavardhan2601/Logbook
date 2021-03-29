@@ -456,7 +456,7 @@
 													<div class="col-md-2 col-sm-6">
 														<input class="form-control form-control-sm" id="splNo"
 															placeholder="SPL No." type="text"
-															[(ngModel)]='studentdata.student_type' name="spl_no" />
+															[(ngModel)]='studentdata.spl_no' name="spl_no" />
 													</div>
 													<div class="col-md-4 col-sm-12">
 														<div class="input-group input-group-sm">
@@ -466,7 +466,7 @@
 															<input class="form-control" id="splIssuedate"
 																data-date-format="dd/mm/yyyy" data-provide="datepicker"
 																placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.spl_issue_date'
 																name="spl_issue_date" />
 														</div>
 													</div>
@@ -478,12 +478,12 @@
 															<input class="form-control" id="splExprdate"
 																data-date-format="dd/mm/yyyy" data-provide="datepicker"
 																placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.spl_exp_date'
 																name="spl_exp_date" />
 														</div>
 													</div>
 													<!-- <div class="col-md-3 col-sm-6 file_plugin" id="splAttach"
-														[(ngModel)]='studentdata.student_type'  name="spl_attach"></div> -->
+														[(ngModel)]='studentdata.spl_attach'  name="spl_attach"></div> -->
 												</div>
 												<hr />
 											</div>
@@ -494,7 +494,7 @@
 														<div class="form-group">
 															<input class="form-control form-control-sm"
 																placeholder="FRTOL  No." type="text"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.frtol_no'
 																name="frtol_no" />
 														</div>
 													</div>
@@ -505,7 +505,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.frtol_issue_date'
 																name="frtol_issue_date" />
 														</div>
 													</div>
@@ -516,7 +516,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.frtol_exp_date'
 																name="frtol_exp_date" />
 														</div>
 													</div>
@@ -531,7 +531,7 @@
 													<div class="col-md-2 col-sm-6">
 														<input class="form-control form-control-sm" id="frtolrNo"
 															placeholder="FRTOL (R)  No." type="text"
-															[(ngModel)]='studentdata.student_type'
+															[(ngModel)]='studentdata.lt_FRTOLR_type1'
 															name="lt_FRTOLR_type1" />
 													</div>
 													<div class="col-md-4 col-sm-12">
@@ -541,7 +541,7 @@
 															</div>
 															<input class="form-control" id="frtolrIssuedate"
 																data-date-format="dd/mm/yyyy" placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.lt_FRTOLR_date1'
 																name="lt_FRTOLR_date1" data-provide="datepicker" />
 														</div>
 													</div>
@@ -553,7 +553,7 @@
 															<input class="form-control" id="frtolrExprdate"
 																data-date-format="dd/mm/yyyy" data-provide="datepicker"
 																placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.lt_FRTOLR_Expiry_date1'
 																name="lt_FRTOLR_Expiry_date1" />
 														</div>
 													</div>
@@ -568,7 +568,7 @@
 														<div class="form-group">
 															<input class="form-control form-control-sm"
 																placeholder="COPRTR No." type="text"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.coprtr_no'
 																name="coprtr_no" />
 														</div>
 													</div>
@@ -579,7 +579,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.coprtr_issue_date'
 																name="coprtr_issue_date" data-provide="datepicker" />
 														</div>
 													</div>
@@ -590,7 +590,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.coprtr_exp_date'
 																name="coprtr_exp_date" />
 														</div>
 													</div>
@@ -606,7 +606,7 @@
 													<div class="col-md-2 col-sm-6">
 														<input class="form-control form-control-sm"
 															placeholder="PPL No." type="text"
-															[(ngModel)]='studentdata.student_type' name="ppl_no" />
+															[(ngModel)]='studentdata.ppl_no' name="ppl_no" />
 													</div>
 													<div class="col-md-4 col-sm-12">
 														<div class="input-group input-group-sm">
@@ -615,7 +615,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.ppl_issue_date'
 																name="ppl_issue_date" />
 														</div>
 													</div>
@@ -626,7 +626,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.ppl_exp_date'
 																name="ppl_exp_date" />
 														</div>
 													</div>
@@ -643,7 +643,7 @@
 														<div class="form-group">
 															<input class="form-control form-control-sm" type="text"
 																placeholder="IND CPL No."
-																[(ngModel)]='studentdata.student_type' name="cpl_no" />
+																[(ngModel)]='studentdata.cpl_no' name="cpl_no" />
 														</div>
 													</div>
 													<div class="col-md-4 col-sm-12">
@@ -653,7 +653,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.cpl_issue_date'
 																name="cpl_issue_date" data-provide="datepicker" />
 														</div>
 													</div>
@@ -664,7 +664,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expriy date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.cpl_exp_date'
 																name="cpl_exp_date" />
 														</div>
 													</div>
@@ -676,7 +676,7 @@
 														<div class="form-group">
 															<input class="form-control form-control-sm" type="text"
 																placeholder="FORG CPL No."
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.cpl_forg_no'
 																name="cpl_forg_no" />
 														</div>
 													</div>
@@ -687,7 +687,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																placeholder="issue date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.cpl_issue_forg_date'
 																name="cpl_issue_forg_date" data-provide="datepicker" />
 														</div>
 													</div>
@@ -698,7 +698,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expriy date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.cpl_exp_forg_date'
 																name="cpl_exp_forg_date" />
 														</div>
 													</div>
@@ -715,7 +715,7 @@
 														<div class="form-group">
 															<input class="form-control form-control-sm" type="text"
 																placeholder="IND CHPL No."
-																[(ngModel)]='studentdata.student_type' name="chpl_no" />
+																[(ngModel)]='studentdata.chpl_no' name="chpl_no" />
 														</div>
 													</div>
 													<div class="col-md-4 col-sm-12">
@@ -724,7 +724,7 @@
 																<div class="input-group-text">Issue date </div>
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.chpl_issue_date'
 																name="chpl_issue_date" placeholder="issue date"
 																data-provide="datepicker" />
 														</div>
@@ -736,7 +736,7 @@
 															</div>
 															<input class="form-control" data-date-format="dd/mm/yyyy"
 																data-provide="datepicker" placeholder="expiry date"
-																[(ngModel)]='studentdata.student_type'
+																[(ngModel)]='studentdata.chpl_exp_date'
 																name="chpl_exp_date" />
 														</div>
 													</div>
